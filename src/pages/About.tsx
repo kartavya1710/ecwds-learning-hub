@@ -36,6 +36,29 @@ const About = () => {
     }
   ];
 
+  const aboutImages = [
+    {
+      src: '/lovable-uploads/e1673b96-7401-48ab-9e9d-24ba2ef00c3e.png',
+      title: 'Divyakant Sir Teaching',
+      description: 'Interactive classroom session'
+    },
+    {
+      src: '/lovable-uploads/d24963db-61df-43f3-8bc6-b99145b16731.png',
+      title: 'Academic Excellence',
+      description: 'Outstanding results and achievements'
+    },
+    {
+      src: '/lovable-uploads/4918c16d-437b-48cb-b248-5eb71b4c1028.png',
+      title: 'Student Success',
+      description: 'Congratulations to our toppers'
+    },
+    {
+      src: '/lovable-uploads/be2ea5d8-55a5-4008-a0de-899ce4a93891.png',
+      title: 'Learning Environment',
+      description: 'Students engaged in practical learning'
+    }
+  ];
+
   return (
     <div className="min-h-screen bg-white">
       <Header />
@@ -43,8 +66,8 @@ const About = () => {
       {/* Hero Section */}
       <section className="hero-gradient text-white section-padding">
         <div className="max-w-7xl mx-auto text-center">
-          <h1 className="text-5xl font-bold mb-6">About ECWDS</h1>
-          <p className="text-xl text-blue-100 max-w-3xl mx-auto">
+          <h1 className="text-5xl font-bold mb-6 animate-fade-in">About ECWDS</h1>
+          <p className="text-xl text-blue-100 max-w-3xl mx-auto animate-fade-in">
             Empowering students with comprehensive computer education since 1998
           </p>
         </div>
@@ -76,12 +99,26 @@ const About = () => {
                 </p>
               </div>
             </div>
-            <div className="relative">
-              <img 
-                src="/lovable-uploads/d24963db-61df-43f3-8bc6-b99145b16731.png"
-                alt="Divyakant Sir - Profile"
-                className="w-full rounded-2xl shadow-2xl"
-              />
+            
+            {/* Photo Gallery Grid */}
+            <div className="grid grid-cols-2 gap-4">
+              {aboutImages.map((image, index) => (
+                <div 
+                  key={index}
+                  className="relative rounded-xl overflow-hidden shadow-lg card-hover"
+                >
+                  <img 
+                    src={image.src}
+                    alt={image.title}
+                    className="w-full h-48 object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                  <div className="absolute bottom-4 left-4 text-white">
+                    <h4 className="font-semibold text-sm">{image.title}</h4>
+                    <p className="text-xs opacity-80">{image.description}</p>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
         </div>
@@ -101,7 +138,7 @@ const About = () => {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {qualifications.map((qual, index) => (
-              <div key={index} className="bg-white p-6 rounded-xl shadow-lg text-center">
+              <div key={index} className="bg-white p-6 rounded-xl shadow-lg text-center card-hover">
                 <div className="bg-[#2E86AB] bg-opacity-10 p-4 rounded-full w-16 h-16 mx-auto mb-4 flex items-center justify-center">
                   <qual.icon className="h-8 w-8 text-[#2E86AB]" />
                 </div>
@@ -127,7 +164,7 @@ const About = () => {
               </h2>
               <div className="space-y-4">
                 {achievements.map((achievement, index) => (
-                  <div key={index} className="flex items-start space-x-3">
+                  <div key={index} className="flex items-start space-x-3 animate-fade-in">
                     <CheckCircle className="h-6 w-6 text-green-500 mt-0.5 flex-shrink-0" />
                     <p className="text-lg text-gray-700">{achievement}</p>
                   </div>

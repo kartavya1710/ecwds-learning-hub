@@ -2,10 +2,14 @@
 import { useState } from 'react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import ImageLightbox from '@/components/ImageLightbox';
 import { Star, Trophy, Users, Camera, Play, Image as ImageIcon } from 'lucide-react';
 
 const Gallery = () => {
   const [activeTab, setActiveTab] = useState('reviews');
+  const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [lightboxImages, setLightboxImages] = useState<Array<{ src: string; title: string; description: string }>>([]);
+  const [lightboxIndex, setLightboxIndex] = useState(0);
 
   const tabs = [
     { id: 'reviews', name: 'Reviews', icon: Star },
@@ -19,8 +23,9 @@ const Gallery = () => {
       {
         type: 'video',
         thumbnail: '/lovable-uploads/be2ea5d8-55a5-4008-a0de-899ce4a93891.png',
+        src: '/lovable-uploads/be2ea5d8-55a5-4008-a0de-899ce4a93891.png',
         title: 'Parent Testimonial - Excellent Teaching',
-        description: 'Mother of Std. 12 student shares her experience'
+        description: 'Mother of Std. 12 student shares her experience with ECWDS'
       },
       {
         type: 'image',
@@ -67,6 +72,14 @@ const Gallery = () => {
     ]
   };
 
+  const openLightbox = (images: typeof lightboxImages, index: number) => {
+    setLightboxImages(images);
+    setLightboxIndex(index);
+    setLightboxOpen(true);
+  };
+
+  const currentGalleryItems = galleryData[activeTab as keyof typeof galleryData];
+
   return (
     <div className="min-h-screen bg-white">
       <Header />
@@ -74,8 +87,8 @@ const Gallery = () => {
       {/* Hero Section */}
       <section className="hero-gradient text-white section-padding">
         <div className="max-w-7xl mx-auto text-center">
-          <h1 className="text-5xl font-bold mb-6">Success Gallery</h1>
-          <p className="text-xl text-blue-100 max-w-3xl mx-auto">
+          <h1 className="text-5xl font-bold mb-6 animate-fade-in">Success Gallery</h1>
+          <p className="text-xl text-blue-100 max-w-3xl mx-auto animate-fade-in">
             Explore our journey of excellence through student achievements, testimonials, and memorable moments
           </p>
         </div>
@@ -89,7 +102,7 @@ const Gallery = () => {
               <button
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id)}
-                className={`flex items-center space-x-2 px-6 py-3 rounded-full font-medium transition-all duration-300 ${
+                className={`flex items-center space-x-2 px-6 py-3 rounded-full font-medium transition-all duration-300 hover-scale ${
                   activeTab === tab.id
                     ? 'bg-[#2E86AB] text-white shadow-lg'
                     : 'bg-white text-gray-700 hover:bg-[#2E86AB] hover:text-white'
@@ -107,13 +120,24 @@ const Gallery = () => {
       <section className="section-padding">
         <div className="max-w-7xl mx-auto">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {galleryData[activeTab as keyof typeof galleryData].map((item, index) => (
-              <div key={index} className="bg-white rounded-xl shadow-lg overflow-hidden card-hover">
+            {currentGalleryItems.map((item, index) => (
+              <div 
+                key={index} 
+                className="bg-white rounded-xl shadow-lg overflow-hidden card-hover cursor-pointer"
+                onClick={() => openLightbox(
+                  currentGalleryItems.map(img => ({ 
+                    src: img.src || img.thumbnail || '', 
+                    title: img.title, 
+                    description: img.description 
+                  })), 
+                  index
+                )}
+              >
                 <div className="relative">
                   <img 
                     src={item.src || item.thumbnail}
                     alt={item.title}
-                    className="w-full h-64 object-cover"
+                    className="w-full h-64 object-cover transition-transform duration-300 hover:scale-110"
                   />
                   {item.type === 'video' && (
                     <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-30">
@@ -146,7 +170,7 @@ const Gallery = () => {
             ))}
           </div>
 
-          {galleryData[activeTab as keyof typeof galleryData].length === 0 && (
+          {currentGalleryItems.length === 0 && (
             <div className="text-center py-16">
               <div className="bg-gray-100 p-8 rounded-full w-24 h-24 mx-auto mb-4 flex items-center justify-center">
                 <ImageIcon className="h-12 w-12 text-gray-400" />
@@ -161,6 +185,13 @@ const Gallery = () => {
           )}
         </div>
       </section>
+
+      <ImageLightbox
+        images={lightboxImages}
+        initialIndex={lightboxIndex}
+        isOpen={lightboxOpen}
+        onClose={() => setLightboxOpen(false)}
+      />
 
       <Footer />
     </div>
