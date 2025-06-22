@@ -20,15 +20,15 @@ const Hero = () => {
   const stats = [{
     icon: Users,
     label: 'Students Taught',
-    value: '1000+'
+    value: '15000+'
   }, {
     icon: Award,
     label: 'Years Experience',
-    value: '22+'
+    value: '27+'
   }, {
     icon: Star,
     label: 'Success Rate',
-    value: '95%'
+    value: '100%'
   }, {
     icon: BookOpen,
     label: 'Courses',
@@ -36,7 +36,18 @@ const Hero = () => {
   }];
 
   const handleViewResults = () => {
-    window.location.href = '/gallery';
+    // Navigate to Gallery section on same page
+    const gallerySection = document.getElementById('gallery-section');
+    if (gallerySection) {
+      gallerySection.scrollIntoView({ behavior: 'smooth' });
+    } else {
+      // Fallback to gallery page if section not found
+      window.location.href = '/gallery';
+    }
+  };
+
+  const handleEnrollNow = () => {
+    setIsAdmissionFormOpen(true);
   };
 
   return <>
@@ -49,19 +60,22 @@ const Hero = () => {
                 <h1 className="text-4xl md:text-6xl font-bold leading-tight relative">
                   <span className="inline-block animate-[fadeInUp_1s_ease-out] text-white drop-shadow-lg">Excellence in</span>
                   <br />
-                  <span className="text-yellow-300 drop-shadow-lg animate-[bounceIn_1.5s_ease-out] inline-block transform hover:scale-105 transition-transform duration-300">
+                  <span className="text-gradient-enhanced drop-shadow-lg animate-[bounceIn_1.5s_ease-out] inline-block transform hover:scale-105 transition-transform duration-300">
                     Computer Education
                   </span>
                   <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg blur opacity-20 animate-pulse"></div>
                 </h1>
                 <p className="text-xl text-blue-100 leading-relaxed animate-[slideInLeft_1s_ease-out]">
                   Join Surat's most trusted computer tuition classes with Divyakant Sir. 
-                  22 years of experience, proven results, and personalized attention for every student.
+                  27 years of experience, proven results, and personalized attention for every student.
                 </p>
               </div>
 
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button className="bg-white text-[#2E86AB] hover:bg-blue-50 px-8 py-4 text-lg font-semibold hover-scale animate-[slideInUp_1.2s_ease-out]" onClick={() => setIsAdmissionFormOpen(true)}>
+                <Button 
+                  className="bg-white text-[#2E86AB] hover:bg-blue-50 px-8 py-4 text-lg font-semibold hover-scale animate-[slideInUp_1.2s_ease-out]" 
+                  onClick={handleEnrollNow}
+                >
                   Enroll Now
                 </Button>
                 <div className="flex gap-2">
