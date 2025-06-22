@@ -36,10 +36,10 @@ const Header = () => {
               </a>
             </div>
             <div className="flex items-center space-x-2">
-              <a href="https://facebook.com/ecwds" className="hover:text-blue-200 transition-colors">
+              <a href="https://www.facebook.com/EnjoyComputerWithDivyakantSir/" target="_blank" rel="noopener noreferrer" className="hover:text-blue-200 transition-colors">
                 <Facebook size={16} />
               </a>
-              <a href="https://instagram.com/ecwds" className="hover:text-blue-200 transition-colors">
+              <a href="https://www.instagram.com/divyakantmasster/" target="_blank" rel="noopener noreferrer" className="hover:text-blue-200 transition-colors">
                 <Instagram size={16} />
               </a>
               <a href="https://wa.me/919876543210" className="hover:text-blue-200 transition-colors">
