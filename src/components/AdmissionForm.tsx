@@ -1,10 +1,8 @@
-
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { X, User, Mail, Phone, GraduationCap, Calendar, CheckCircle } from 'lucide-react';
-import { toast } from '@/hooks/use-toast';
 
 interface AdmissionFormProps {
   isOpen: boolean;
@@ -30,7 +28,7 @@ const AdmissionForm = ({ isOpen, onClose }: AdmissionFormProps) => {
     
     // Simulate sending data to admin (you would integrate with your backend here)
     console.log('Form Data Submitted:', formData);
-    console.log('Admin SMS should be sent to: +919876543210');
+    console.log('Admin SMS should be sent to: +919825472797');
     
     // Show success modal instead of toast
     setShowSuccessModal(true);
@@ -235,31 +233,27 @@ const AdmissionForm = ({ isOpen, onClose }: AdmissionFormProps) => {
           <div className="bg-white rounded-3xl max-w-md w-full p-8 text-center animate-scale-in">
             <div className="mb-6">
               <CheckCircle className="h-20 w-20 text-green-500 mx-auto mb-4 animate-bounce" />
-              <h3 className="text-2xl font-bold text-gray-900 mb-2">Registration Successful! 🎉</h3>
+              <h3 className="text-2xl font-bold text-gray-900 mb-2">Application Submitted Successfully!</h3>
               <p className="text-gray-600">
-                Thank you for registering with ECWDS!
+                Thank you for your interest in ECWDS. Our team will contact you within 24 hours to discuss admission details and schedule your visit.
               </p>
             </div>
 
-            <div className="bg-green-50 p-6 rounded-2xl mb-6">
-              <h4 className="font-bold text-green-800 mb-3">📱 Next Steps:</h4>
-              <div className="space-y-2 text-sm text-green-700">
-                <p>✅ Your application has been submitted</p>
-                <p>✅ Divyakant Sir has been notified</p>
-                <p>✅ You will receive a confirmation call soon</p>
-              </div>
+            <div className="bg-blue-50 p-6 rounded-2xl mb-6">
+              <h4 className="font-bold text-blue-800 mb-3">📞 For immediate assistance, call:</h4>
+              <div className="text-2xl font-bold text-blue-900 mb-2">+919825472797</div>
             </div>
 
             <div className="space-y-3">
               <a 
-                href="tel:+919876543210"
+                href="tel:+919825472797"
                 className="w-full btn-primary inline-flex items-center justify-center px-6 py-4 text-lg font-semibold rounded-xl"
               >
                 📞 Call Divyakant Sir Now
               </a>
               
               <a 
-                href="https://wa.me/919876543210"
+                href="https://wa.me/919825472797"
                 className="w-full bg-green-500 hover:bg-green-600 text-white inline-flex items-center justify-center px-6 py-4 text-lg font-semibold rounded-xl transition-colors"
               >
                 💬 WhatsApp Chat

@@ -62,10 +62,10 @@ const Courses = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-            અમારા કોર્સ અને ફી સ્ટ્રક્ચર
+            Our Courses and Fee Structure
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Standard 10, 11, અને 12 માટે સંપૂર્ણ કમ્પ્યુટર કોર્સ અને પ્રેક્ટિકલ ટ્રેનિંગ
+            Complete computer courses and practical training for Standard 10, 11, and 12
           </p>
         </div>
 
@@ -132,10 +132,13 @@ const Courses = () => {
                   </div>
                 </div>
 
-                {/* Enroll Button */}
-                <Button className="w-full btn-primary hover-scale">
-                  Enroll Now - {course.standard}
-                </Button>
+                {/* Contact Button */}
+                <a 
+                  href="tel:+919825472797"
+                  className="w-full btn-primary hover-scale inline-flex items-center justify-center px-6 py-3 rounded-lg text-center"
+                >
+                  Contact us now for admission
+                </a>
               </div>
             </div>
           ))}
@@ -145,16 +148,16 @@ const Courses = () => {
         <div className="mt-12 text-center">
           <div className="bg-blue-50 rounded-2xl p-8 max-w-4xl mx-auto">
             <h3 className="text-2xl font-bold text-gray-900 mb-4">
-              📞 Admission અને ફી સંબંધિત માહિતી માટે સંપર્ક કરો
+              📞 Contact for Admission and Fee Information
             </h3>
             <p className="text-lg text-gray-700 mb-6">
-              પ્રવેશ, શેડ્યૂલ, અને ખાસ ડિસ્કાઉન્ટ માટે આજે જ કૉલ કરો
+              Call today for admission, schedule, and special discounts
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a href="tel:+919876543210" className="btn-primary inline-flex items-center justify-center px-6 py-3 rounded-lg">
-                📞 +91 98765 43210
+              <a href="tel:+919825472797" className="btn-primary inline-flex items-center justify-center px-6 py-3 rounded-lg">
+                📞 +91 98254 72797
               </a>
-              <a href="https://wa.me/919876543210" className="btn-secondary inline-flex items-center justify-center px-6 py-3 rounded-lg">
+              <a href="https://wa.me/919825472797" className="btn-secondary inline-flex items-center justify-center px-6 py-3 rounded-lg">
                 💬 WhatsApp Chat
               </a>
             </div>
