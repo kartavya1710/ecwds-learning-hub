@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -242,19 +241,31 @@ const AdmissionForm = ({ isOpen, onClose }: AdmissionFormProps) => {
         </div>
       </div>
 
-      {/* Success Modal - Always show after submission */}
+      {/* Success Modal - Exactly like your reference image */}
       {showSuccessModal && (
-        <div className="fixed inset-0 bg-black bg-opacity-70 z-60 flex items-center justify-center p-4">
-          <div className="bg-white rounded-3xl max-w-md w-full p-8 text-center animate-scale-in">
+        <div className="fixed inset-0 bg-black bg-opacity-70 z-[60] flex items-center justify-center p-4">
+          <div className="bg-white rounded-2xl max-w-md w-full p-8 text-center shadow-2xl">
+            <div className="flex justify-between items-start mb-6">
+              <div className="flex items-center">
+                <GraduationCap className="mr-3 h-7 w-7 text-[#2E86AB]" />
+                <h2 className="text-xl font-bold text-gray-900">Admission Form - ECWDS</h2>
+              </div>
+              <Button variant="ghost" size="icon" onClick={closeSuccessModal}>
+                <X className="h-6 w-6" />
+              </Button>
+            </div>
+
             <div className="mb-6">
-              <CheckCircle className="h-20 w-20 text-green-500 mx-auto mb-4 animate-bounce" />
-              <h3 className="text-2xl font-bold text-gray-900 mb-2">Application Submitted Successfully!</h3>
-              <p className="text-gray-600">
+              <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <CheckCircle className="h-12 w-12 text-green-500" />
+              </div>
+              <h3 className="text-2xl font-bold text-gray-900 mb-4">Application Submitted Successfully!</h3>
+              <p className="text-gray-600 mb-6">
                 Thank you for your interest in ECWDS. Our team will contact you within 24 hours to discuss admission details and schedule your visit.
               </p>
             </div>
 
-            <div className="grid md:grid-cols-2 gap-4 mb-6">
+            <div className="grid grid-cols-2 gap-4 mb-6">
               <div className="bg-green-50 border border-green-200 p-4 rounded-lg">
                 <div className="flex items-center justify-center mb-3">
                   <svg className="w-6 h-6 text-green-600 mr-2" fill="currentColor" viewBox="0 0 24 24">
@@ -262,14 +273,15 @@ const AdmissionForm = ({ isOpen, onClose }: AdmissionFormProps) => {
                   </svg>
                   <span className="font-semibold text-green-700">WhatsApp</span>
                 </div>
-                <a 
-                  href={`https://wa.me/919825472797?text=${encodeURIComponent(`Hi Sir, I just submitted my admission application for ECWDS. My name is ${formData.studentName}. Please guide me about the next steps.`)}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-full bg-green-600 hover:bg-green-700 text-white inline-flex items-center justify-center px-4 py-3 rounded-lg transition-colors"
+                <Button 
+                  className="w-full bg-green-600 hover:bg-green-700 text-white"
+                  onClick={() => {
+                    const message = encodeURIComponent(`Hi Sir, I just submitted my admission application for ECWDS. My name is ${formData.studentName}. Please guide me about the next steps.`);
+                    window.open(`https://wa.me/919825472797?text=${message}`, '_blank');
+                  }}
                 >
                   Message on WhatsApp
-                </a>
+                </Button>
               </div>
               
               <div className="bg-blue-50 border border-blue-200 p-4 rounded-lg">
@@ -277,12 +289,12 @@ const AdmissionForm = ({ isOpen, onClose }: AdmissionFormProps) => {
                   <Phone className="h-6 w-6 text-blue-600 mr-2" />
                   <span className="font-semibold text-blue-700">Call Directly</span>
                 </div>
-                <a 
-                  href="tel:+919825472797"
-                  className="w-full bg-blue-600 hover:bg-blue-700 text-white inline-flex items-center justify-center px-4 py-3 rounded-lg transition-colors"
+                <Button 
+                  className="w-full bg-blue-600 hover:bg-blue-700 text-white"
+                  onClick={() => window.open('tel:+919825472797', '_self')}
                 >
                   Call +919825472797
-                </a>
+                </Button>
               </div>
             </div>
             
