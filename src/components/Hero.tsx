@@ -2,9 +2,11 @@ import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Star, Users, Award, BookOpen } from 'lucide-react';
 import AdmissionForm from '@/components/AdmissionForm';
+
 const Hero = () => {
   const [isAdmissionFormOpen, setIsAdmissionFormOpen] = useState(false);
   const [showAICoursePopup, setShowAICoursePopup] = useState(false);
+
   useEffect(() => {
     // Show AI course popup after 3 seconds
     const timer = setTimeout(() => {
@@ -12,6 +14,7 @@ const Hero = () => {
     }, 3000);
     return () => clearTimeout(timer);
   }, []);
+
   const stats = [{
     icon: Users,
     label: 'Students Taught',
@@ -29,7 +32,9 @@ const Hero = () => {
     label: 'Courses',
     value: '10+'
   }];
+
   const handleViewResults = () => {
+    console.log('View Results button clicked');
     // Navigate to Gallery section on same page
     const gallerySection = document.getElementById('gallery-section');
     if (gallerySection) {
@@ -41,10 +46,14 @@ const Hero = () => {
       window.location.href = '/gallery';
     }
   };
+
   const handleEnrollNow = () => {
+    console.log('Enroll Now button clicked');
     setIsAdmissionFormOpen(true);
   };
-  return <>
+
+  return (
+    <>
       <section className="hero-gradient text-white overflow-hidden relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -65,14 +74,22 @@ const Hero = () => {
                 </p>
               </div>
 
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Button className="bg-white text-[#2E86AB] hover:bg-blue-50 px-8 py-4 text-lg font-semibold hover-scale animate-[slideInUp_1.2s_ease-out]" onClick={handleEnrollNow}>
+              <div className="flex flex-col sm:flex-row gap-4 z-10 relative">
+                <button 
+                  className="bg-white text-[#2E86AB] hover:bg-blue-50 px-8 py-4 text-lg font-semibold rounded-lg transition-all duration-300 hover:scale-105 cursor-pointer"
+                  onClick={handleEnrollNow}
+                  type="button"
+                >
                   Enroll Now
-                </Button>
+                </button>
                 <div className="flex gap-2">
-                  <Button variant="outline" onClick={handleViewResults} className="border-white px-8 py-4 text-lg font-semibold animate-[slideInUp_1.4s_ease-out] bg-slate-200 hover:bg-slate-100 text-cyan-700">
+                  <button 
+                    className="border border-white px-8 py-4 text-lg font-semibold rounded-lg bg-slate-200 hover:bg-slate-100 text-cyan-700 transition-all duration-300 hover:scale-105 cursor-pointer"
+                    onClick={handleViewResults}
+                    type="button"
+                  >
                     View Results
-                  </Button>
+                  </button>
                   <div className="bg-red-500 text-white px-4 py-2 rounded-lg font-bold text-sm animate-pulse flex items-center">
                     🔥 Limited Seats Left
                   </div>
@@ -163,6 +180,8 @@ const Hero = () => {
             </div>
           </div>
         </div>}
-    </>;
+    </>
+  );
 };
+
 export default Hero;
