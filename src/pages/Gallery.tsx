@@ -1,59 +1,63 @@
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import ImageLightbox from '@/components/ImageLightbox';
+import { GALLERY_CATEGORIES, getImagesFromFolder, getFallbackImages } from '@/utils/galleryUtils';
 
 const Gallery = () => {
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [lightboxImages, setLightboxImages] = useState<Array<{ src: string; title: string; description: string }>>([]);
   const [lightboxIndex, setLightboxIndex] = useState(0);
+  const [galleryData, setGalleryData] = useState<{[key: string]: Array<{src: string; title: string; description: string}>}>({});
+  const [activeCategory, setActiveCategory] = useState<string>('all');
+  
+  const location = useLocation();
 
-  const galleryImages = [
-    {
-      src: "/lovable-uploads/7d3108d6-20bc-41e4-a2bd-dc12ee814e7b.png",
-      title: "ECWDS Computer Class Achievement 1",
-      description: "Students celebrating their success in computer examinations"
-    },
-    {
-      src: "/lovable-uploads/199b222b-a06e-469d-8c5b-e67aee05ee31.png",
-      title: "ECWDS Computer Class Achievement 2", 
-      description: "Interactive learning session with Divyakant Sir"
-    },
-    {
-      src: "/lovable-uploads/c28807ee-879b-4269-b44a-81473193e53e.png",
-      title: "ECWDS Computer Class Achievement 3",
-      description: "Practical computer training in progress"
-    },
-    {
-      src: "/lovable-uploads/2b8c3839-0071-4e7a-9edd-8a731b4b71e0.png",
-      title: "ECWDS Computer Class Achievement 4",
-      description: "Students engaged in hands-on computer learning"
-    },
-    {
-      src: "/lovable-uploads/9c91fbc5-14dc-4030-ba4a-6ff95eb5e2d2.png",
-      title: "ECWDS Computer Class Achievement 5",
-      description: "Group learning and collaboration in computer class"
-    },
-    {
-      src: "/lovable-uploads/46262088-b4ee-4171-a28d-9a660f44be7d.png",
-      title: "ECWDS Computer Class Achievement 6",
-      description: "Advanced computer programming session"
-    },
-    {
-      src: "/lovable-uploads/faa0a766-6271-4fc0-aaad-ee338e899ff0.png",
-      title: "ECWDS Computer Class Achievement 7",
-      description: "Students working on computer projects"
-    },
-    {
-      src: "/lovable-uploads/521f5656-c4ac-4cf5-b353-033c0a71235e.png",
-      title: "ECWDS Computer Class Achievement 8",
-      description: "Examination preparation and practice session"
+  useEffect(() => {
+    // Load images for each category
+    const loadGalleryData = async () => {
+      const data: {[key: string]: Array<{src: string; title: string; description: string}>} = {};
+      
+      for (const [key, category] of Object.entries(GALLERY_CATEGORIES)) {
+        const folderImages = await getImagesFromFolder(category.folder);
+        const fallbackImages = getFallbackImages(key);
+        data[key] = folderImages.length > 0 ? folderImages : fallbackImages;
+      }
+      
+      setGalleryData(data);
+    };
+    
+    loadGalleryData();
+    
+    // Check if URL has hash for specific category
+    if (location.hash) {
+      const category = location.hash.replace('#', '');
+      if (Object.keys(GALLERY_CATEGORIES).includes(category)) {
+        setActiveCategory(category);
+      }
     }
-  ];
+  }, [location]);
+
+  const getAllImages = () => {
+    return Object.values(galleryData).flat();
+  };
+
+  const getDisplayImages = () => {
+    if (activeCategory === 'all') {
+      return getAllImages();
+    }
+    return galleryData[activeCategory] || [];
+  };
 
   const openLightbox = (index: number) => {
-    setLightboxImages(galleryImages);
+    const displayImages = getDisplayImages();
+    setLightboxImages(displayImages);
     setLightboxIndex(index);
     setLightboxOpen(true);
+  };
+
+  const getCategoryStats = (category: string) => {
+    return galleryData[category]?.length || 0;
   };
 
   return (
@@ -65,8 +69,36 @@ const Gallery = () => {
             <p className="text-lg text-gray-600">Celebrating achievements and memorable moments at ECWDS</p>
           </div>
 
+          {/* Category Filters */}
+          <div className="flex flex-wrap justify-center gap-4 mb-8">
+            <button
+              onClick={() => setActiveCategory('all')}
+              className={`px-6 py-3 rounded-full font-semibold transition-all duration-300 ${
+                activeCategory === 'all' 
+                  ? 'bg-[#2E86AB] text-white' 
+                  : 'bg-white text-[#2E86AB] border border-[#2E86AB] hover:bg-[#2E86AB] hover:text-white'
+              }`}
+            >
+              All ({getAllImages().length})
+            </button>
+            {Object.entries(GALLERY_CATEGORIES).map(([key, category]) => (
+              <button
+                key={key}
+                onClick={() => setActiveCategory(key)}
+                className={`px-6 py-3 rounded-full font-semibold transition-all duration-300 ${
+                  activeCategory === key 
+                    ? 'bg-[#2E86AB] text-white' 
+                    : 'bg-white text-[#2E86AB] border border-[#2E86AB] hover:bg-[#2E86AB] hover:text-white'
+                }`}
+              >
+                {category.title} ({getCategoryStats(key)})
+              </button>
+            ))}
+          </div>
+
+          {/* Images Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-            {galleryImages.map((image, index) => (
+            {getDisplayImages().map((image, index) => (
               <div 
                 key={index} 
                 className="relative group overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer bg-white"

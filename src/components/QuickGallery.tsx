@@ -2,37 +2,38 @@
 import { Link } from 'react-router-dom';
 import { ArrowRight, Star, Trophy, Users, Camera } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { GALLERY_CATEGORIES } from '@/utils/galleryUtils';
 
 const QuickGallery = () => {
   const galleryCategories = [
     {
       icon: Star,
-      title: 'Reviews',
-      description: 'Student and parent testimonials',
+      title: GALLERY_CATEGORIES.reviews.title,
+      description: GALLERY_CATEGORIES.reviews.description,
       image: '/lovable-uploads/be2ea5d8-55a5-4008-a0de-899ce4a93891.png',
       count: '50+',
       link: '/gallery#reviews'
     },
     {
       icon: Trophy,
-      title: 'Results',
-      description: 'Academic achievements and mark sheets',
+      title: GALLERY_CATEGORIES.results.title,
+      description: GALLERY_CATEGORIES.results.description,
       image: '/lovable-uploads/4918c16d-437b-48cb-b248-5eb71b4c1028.png',
       count: '100+',
       link: '/gallery#results'
     },
     {
       icon: Users,
-      title: 'Rankers',
-      description: 'Top performing students',
+      title: GALLERY_CATEGORIES.rankers.title,
+      description: GALLERY_CATEGORIES.rankers.description,
       image: '/lovable-uploads/0a1febda-9ffe-4cd1-a32f-943c9f081e1b.png',
       count: '200+',
       link: '/gallery#rankers'
     },
     {
       icon: Camera,
-      title: 'Celebrations',
-      description: 'Events, festivals & classroom moments',
+      title: GALLERY_CATEGORIES.celebrations.title,
+      description: GALLERY_CATEGORIES.celebrations.description,
       image: '/lovable-uploads/be2ea5d8-55a5-4008-a0de-899ce4a93891.png',
       count: '150+',
       link: '/gallery#celebrations'
