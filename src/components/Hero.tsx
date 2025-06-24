@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Star, Users, Award, BookOpen } from 'lucide-react';
@@ -186,11 +185,11 @@ const Hero = () => {
 
             <div className="space-y-3">
               <a 
-                href="tel:+919825472797" 
+                href="tel:+919978826343" 
                 className="w-full bg-green-500 hover:bg-green-600 text-white inline-flex items-center justify-center px-6 py-4 text-lg font-semibold rounded-xl transition-colors" 
                 onClick={() => setShowAICoursePopup(false)}
               >
-                📞 Call for Queries: 9825472797
+                📞 Call for Queries: 9978826343
               </a>
               
               <button 

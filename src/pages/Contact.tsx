@@ -24,7 +24,7 @@ const Contact = () => {
                   </div>
                   <div>
                     <h3 className="font-semibold text-gray-900">Phone</h3>
-                    <p className="text-gray-600">+91 98254 72797</p>
+                    <p className="text-gray-600">+91 99788 26343</p>
                     <p className="text-sm text-gray-500">Available: Mon-Sat, 9 AM - 6 PM</p>
                   </div>
                 </div>
@@ -35,7 +35,7 @@ const Contact = () => {
                   </div>
                   <div>
                     <h3 className="font-semibold text-gray-900">WhatsApp</h3>
-                    <p className="text-gray-600">+91 98254 72797</p>
+                    <p className="text-gray-600">+91 99788 26343</p>
                     <p className="text-sm text-gray-500">Quick responses & updates</p>
                   </div>
                 </div>
@@ -70,14 +70,14 @@ const Contact = () => {
 
               <div className="mt-8 space-y-4">
                 <a 
-                  href="tel:+919825472797"
+                  href="tel:+919978826343"
                   className="w-full btn-primary inline-flex items-center justify-center px-6 py-3 rounded-lg"
                 >
                   <Phone className="mr-2 h-5 w-5" />
                   Call Now
                 </a>
                 <a 
-                  href="https://wa.me/919825472797"
+                  href="https://wa.me/919978826343"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-full bg-green-500 hover:bg-green-600 text-white inline-flex items-center justify-center px-6 py-3 rounded-lg transition-colors"
