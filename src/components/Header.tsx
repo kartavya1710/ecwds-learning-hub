@@ -30,7 +30,7 @@ const Header = () => {
                 <Phone size={14} />
                 <span>+91 99788 26343</span>
               </a>
-              <a href="mailto:divyakantmaster@yahoo.com" className="flex items-center space-x-1 hover:text-blue-200 transition-colors">
+              <a href="mailto:divyakantmaster@yahoo.com" className="hidden md:flex items-center space-x-1 hover:text-blue-200 transition-colors">
                 <Mail size={14} />
                 <span>divyakantmaster@yahoo.com</span>
               </a>
