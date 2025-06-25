@@ -1,6 +1,8 @@
 
 import { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
+import Header from '@/components/Header';
+import Footer from '@/components/Footer';
 import ImageLightbox from '@/components/ImageLightbox';
 import { GALLERY_CATEGORIES, getImagesFromFolder, getFallbackImages } from '@/utils/galleryUtils';
 
@@ -62,6 +64,7 @@ const Gallery = () => {
 
   return (
     <>
+      <Header />
       <div className="min-h-screen bg-gray-50 py-16" id="gallery-section">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
@@ -144,6 +147,7 @@ const Gallery = () => {
           </div>
         </div>
       </div>
+      <Footer />
       
       <ImageLightbox
         images={lightboxImages}
