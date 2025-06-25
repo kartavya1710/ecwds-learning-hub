@@ -261,7 +261,7 @@ const AdmissionForm = ({ isOpen, onClose }: AdmissionFormProps) => {
               </div>
               <h3 className="text-2xl font-bold text-gray-900 mb-4">Application Submitted Successfully!</h3>
               <p className="text-gray-600 mb-6">
-                Thank you for your interest in ECWDS. Our team will contact you within 24 hours to discuss admission details and schedule your visit.
+                Thank you for your interest in ECWDS. Please reach out to us on WhatsApp or call us at +919825472797 to discuss admission details and schedule your visit.
               </p>
             </div>
 
@@ -280,7 +280,7 @@ const AdmissionForm = ({ isOpen, onClose }: AdmissionFormProps) => {
                     window.open(`https://wa.me/919825472797?text=${message}`, '_blank');
                   }}
                 >
-                  Message on WhatsApp
+                  Text on WhatsApp
                 </Button>
               </div>
               
@@ -296,16 +296,6 @@ const AdmissionForm = ({ isOpen, onClose }: AdmissionFormProps) => {
                   Call +919825472797
                 </Button>
               </div>
-            </div>
-            
-            <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-4 mb-6">
-              <div className="flex items-center mb-2">
-                <CheckCircle className="h-5 w-5 text-yellow-600 mr-2" />
-                <span className="font-semibold text-yellow-800">Application Status</span>
-              </div>
-              <p className="text-yellow-700 text-sm">
-                Your application has been received and Sir will personally review it. You'll receive a confirmation call within 2-4 hours during office hours.
-              </p>
             </div>
             
             <Button 
