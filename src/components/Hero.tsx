@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Star, Users, Award, BookOpen } from 'lucide-react';
@@ -59,52 +60,52 @@ const Hero = () => {
   return (
     <>
       <section className="hero-gradient text-white overflow-hidden relative w-full">
-        <div className="max-w-[1440px] mx-auto px-6 sm:px-8 lg:px-12 py-20">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
+        <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-12 py-12 sm:py-16 lg:py-20">
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
             {/* Content */}
-            <div className="space-y-8 animate-fade-in max-w-2xl">
-              <div className="space-y-6">
-                <h1 className="text-4xl md:text-6xl font-bold leading-tight text-white max-w-3xl">
-                  <span className="inline-block text-white whitespace-nowrap">Best Computer Classes</span>
+            <div className="space-y-6 lg:space-y-8 animate-fade-in max-w-2xl">
+              <div className="space-y-4 lg:space-y-6">
+                <h1 className="text-3xl sm:text-4xl lg:text-6xl font-bold leading-tight text-white">
+                  <span className="inline-block text-white">Best Computer Classes</span>
                   <br />
                   <span className="text-white inline-block">in Surat</span>
                 </h1>
-                <h2 className="text-2xl md:text-3xl font-semibold text-blue-100 mb-4">
+                <h2 className="text-xl sm:text-2xl lg:text-3xl font-semibold text-blue-100 mb-3 lg:mb-4">
                   Divyakant Sir - 27+ Years Experience
                 </h2>
-                <p className="text-xl text-blue-100 leading-relaxed animate-[slideInLeft_1s_ease-out]">
+                <p className="text-base sm:text-lg lg:text-xl text-blue-100 leading-relaxed animate-[slideInLeft_1s_ease-out]">
                   Surat's #1 computer tuition classes for Std 10, 11 & 12. Gujarat Board certified teacher. 
                   15000+ students taught with 100% success rate. Author of Computer Darpan books.
                 </p>
-                <div className="bg-yellow-400 text-black p-4 rounded-lg inline-block">
-                  <p className="font-bold">🏆 7 Students Ranked in Gujarat Board | 27 in Surat Centre</p>
+                <div className="bg-yellow-400 text-black p-3 sm:p-4 rounded-lg">
+                  <p className="font-bold text-sm sm:text-base">🏆 7 Students Ranked in Gujarat Board | 27 in Surat Centre</p>
                 </div>
               </div>
 
-              <div className="flex flex-col sm:flex-row gap-4 z-10 relative">
+              <div className="flex flex-col gap-3 sm:gap-4 z-10 relative">
                 <button 
                   onClick={handleEnrollNow} 
                   type="button" 
-                  className="bg-white text-[#2E86AB] hover:bg-blue-50 px-8 py-4 text-lg font-semibold transition-all duration-300 hover:scale-105 cursor-pointer rounded-3xl"
+                  className="bg-white text-[#2E86AB] hover:bg-blue-50 px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-semibold transition-all duration-300 hover:scale-105 cursor-pointer rounded-3xl w-full sm:w-auto"
                 >
                   Enroll Now - Call 9978826343
                 </button>
-                <div className="flex gap-2">
+                <div className="flex flex-col sm:flex-row gap-2 sm:gap-3">
                   <button 
                     onClick={handleViewResults} 
                     type="button" 
-                    className="border border-white px-8 py-4 text-lg font-semibold bg-slate-200 hover:bg-slate-100 text-cyan-700 transition-all duration-300 hover:scale-105 cursor-pointer rounded-3xl"
+                    className="border border-white px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-semibold bg-slate-200 hover:bg-slate-100 text-cyan-700 transition-all duration-300 hover:scale-105 cursor-pointer rounded-3xl flex-1"
                   >
                     View Results
                   </button>
-                  <div className="bg-red-500 text-white px-4 py-2 font-bold text-sm animate-pulse flex items-center rounded-lg">
+                  <div className="bg-red-500 text-white px-3 sm:px-4 py-2 sm:py-3 font-bold text-sm animate-pulse flex items-center justify-center rounded-lg">
                     🔥 Limited Seats Left
                   </div>
                 </div>
               </div>
 
-              {/* SEO Keywords Section */}
-              <div className="bg-white/10 p-6 rounded-lg max-w-3xl">
+              {/* SEO Keywords Section - Hidden on mobile, visible on larger screens */}
+              <div className="hidden sm:block bg-white/10 p-4 lg:p-6 rounded-lg max-w-3xl">
                 <p className="text-sm text-blue-100">
                   <strong>Keywords:</strong> Computer Classes Surat | Computer Tuition Gujarat | Programming Classes | 
                   Computer Coaching | IT Education | Board Exam Preparation | GSEB Computer Science
@@ -112,24 +113,24 @@ const Hero = () => {
               </div>
 
               {/* Stats */}
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-8 pt-8">
+              <div className="grid grid-cols-2 gap-4 sm:gap-6 lg:gap-8 pt-6 lg:pt-8">
                 {stats.map((stat, index) => (
                   <div 
                     key={index} 
                     className="text-center hover-scale animate-[fadeInUp_1s_ease-out]" 
                     style={{ animationDelay: `${index * 0.2}s` }}
                   >
-                    <stat.icon className="h-8 w-8 mx-auto mb-2 text-blue-200" />
-                    <div className="text-2xl font-bold">{stat.value}</div>
-                    <div className="text-sm text-blue-200">{stat.label}</div>
+                    <stat.icon className="h-6 w-6 sm:h-8 sm:w-8 mx-auto mb-2 text-blue-200" />
+                    <div className="text-xl sm:text-2xl font-bold">{stat.value}</div>
+                    <div className="text-xs sm:text-sm text-blue-200">{stat.label}</div>
                   </div>
                 ))}
               </div>
             </div>
 
             {/* Divyakant Sir Photo */}
-            <div className="relative animate-scale-in">
-              <div className="relative rounded-2xl overflow-hidden shadow-2xl transform rotate-2 hover:rotate-0 transition-transform duration-500 hover-scale cursor-pointer">
+            <div className="relative animate-scale-in order-first lg:order-last">
+              <div className="relative rounded-2xl overflow-hidden shadow-2xl transform rotate-1 sm:rotate-2 hover:rotate-0 transition-transform duration-500 hover-scale cursor-pointer">
                 <img 
                   src="/lovable-uploads/e1673b96-7401-48ab-9e9d-24ba2ef00c3e.png" 
                   alt="Divyakant Sir - Best Computer Teacher in Surat, Gujarat" 
@@ -155,13 +156,13 @@ const Hero = () => {
               </div>
               
               {/* Floating badge */}
-              <div className="absolute -top-4 -right-4 bg-yellow-400 text-black px-4 py-2 rounded-full font-bold shadow-lg animate-bounce">
+              <div className="absolute -top-2 sm:-top-4 -right-2 sm:-right-4 bg-yellow-400 text-black px-2 sm:px-4 py-1 sm:py-2 rounded-full font-bold shadow-lg animate-bounce text-xs sm:text-sm">
                 🏆 Author of Computer Darpan
               </div>
               
               {/* Floating testimonial */}
-              <div className="absolute -bottom-6 -left-6 bg-white text-gray-800 p-4 rounded-lg shadow-xl max-w-xs">
-                <p className="text-sm font-medium">"Best computer teacher in Surat!"</p>
+              <div className="absolute -bottom-4 sm:-bottom-6 -left-2 sm:-left-6 bg-white text-gray-800 p-3 sm:p-4 rounded-lg shadow-xl max-w-xs">
+                <p className="text-xs sm:text-sm font-medium">"Best computer teacher in Surat!"</p>
                 <p className="text-xs text-gray-600 mt-1">- Parent Review</p>
               </div>
             </div>
@@ -174,7 +175,7 @@ const Hero = () => {
       {/* AI Course Popup */}
       {showAICoursePopup && (
         <div className="fixed inset-0 bg-black bg-opacity-70 z-50 flex items-center justify-center p-4">
-          <div className="bg-gradient-to-br from-purple-600 to-blue-600 text-white rounded-3xl max-w-md w-full p-8 text-center animate-scale-in relative">
+          <div className="bg-gradient-to-br from-purple-600 to-blue-600 text-white rounded-3xl max-w-md w-full p-6 sm:p-8 text-center animate-scale-in relative">
             <button 
               onClick={() => setShowAICoursePopup(false)} 
               className="absolute top-4 right-4 text-white hover:text-gray-300 text-2xl"
@@ -183,9 +184,9 @@ const Hero = () => {
             </button>
             
             <div className="mb-6">
-              <div className="text-6xl mb-4 animate-bounce">🤖</div>
-              <h3 className="text-2xl font-bold mb-2">🚀 NEW LAUNCH!</h3>
-              <h4 className="text-xl font-semibold mb-4">AI Course in Offline Mode</h4>
+              <div className="text-5xl sm:text-6xl mb-4 animate-bounce">🤖</div>
+              <h3 className="text-xl sm:text-2xl font-bold mb-2">🚀 NEW LAUNCH!</h3>
+              <h4 className="text-lg sm:text-xl font-semibold mb-4">AI Course in Offline Mode</h4>
             </div>
 
             <div className="bg-yellow-400 text-black p-4 rounded-2xl mb-6">
