@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Star, Users, Award, BookOpen } from 'lucide-react';
@@ -65,14 +66,20 @@ const Hero = () => {
             <div className="space-y-8 animate-fade-in">
               <div className="space-y-4">
                 <h1 className="text-4xl md:text-6xl font-bold leading-tight text-white">
-                  <span className="inline-block text-white">Excellence in</span>
+                  <span className="inline-block text-white">Best Computer Classes</span>
                   <br />
-                  <span className="text-white inline-block">Computer Education</span>
+                  <span className="text-white inline-block">in Surat</span>
                 </h1>
+                <h2 className="text-2xl md:text-3xl font-semibold text-blue-100 mb-4">
+                  Divyakant Sir - 27+ Years Experience
+                </h2>
                 <p className="text-xl text-blue-100 leading-relaxed animate-[slideInLeft_1s_ease-out]">
-                  Join Surat's most trusted computer tuition classes with Divyakant Sir. 
-                  27 years of experience, proven results, and personalized attention for every student.
+                  Surat's #1 computer tuition classes for Std 10, 11 & 12. Gujarat Board certified teacher. 
+                  15000+ students taught with 100% success rate. Author of Computer Darpan books.
                 </p>
+                <div className="bg-yellow-400 text-black p-4 rounded-lg inline-block">
+                  <p className="font-bold">🏆 7 Students Ranked in Gujarat Board | 27 in Surat Centre</p>
+                </div>
               </div>
 
               <div className="flex flex-col sm:flex-row gap-4 z-10 relative">
@@ -81,7 +88,7 @@ const Hero = () => {
                   type="button" 
                   className="bg-white text-[#2E86AB] hover:bg-blue-50 px-8 py-4 text-lg font-semibold transition-all duration-300 hover:scale-105 cursor-pointer rounded-3xl"
                 >
-                  Enroll Now
+                  Enroll Now - Call 9978826343
                 </button>
                 <div className="flex gap-2">
                   <button 
@@ -95,6 +102,14 @@ const Hero = () => {
                     🔥 Limited Seats Left
                   </div>
                 </div>
+              </div>
+
+              {/* SEO Keywords Section */}
+              <div className="bg-white/10 p-4 rounded-lg">
+                <p className="text-sm text-blue-100">
+                  <strong>Keywords:</strong> Computer Classes Surat | Computer Tuition Gujarat | Programming Classes | 
+                  Computer Coaching | IT Education | Board Exam Preparation | GSEB Computer Science
+                </p>
               </div>
 
               {/* Stats */}
@@ -118,7 +133,7 @@ const Hero = () => {
               <div className="relative rounded-2xl overflow-hidden shadow-2xl transform rotate-2 hover:rotate-0 transition-transform duration-500 hover-scale cursor-pointer">
                 <img 
                   src="/lovable-uploads/e1673b96-7401-48ab-9e9d-24ba2ef00c3e.png" 
-                  alt="Divyakant Sir - Expert Computer Teacher" 
+                  alt="Divyakant Sir - Best Computer Teacher in Surat, Gujarat" 
                   className="w-full h-auto" 
                   onClick={() => {
                     // Open image in lightbox
