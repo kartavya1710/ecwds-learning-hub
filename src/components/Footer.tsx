@@ -1,6 +1,6 @@
 
 import { Link } from 'react-router-dom';
-import { Phone, Mail, MapPin, Facebook, Clock } from 'lucide-react';
+import { Phone, Mail, MapPin, Facebook, Clock, ExternalLink } from 'lucide-react';
 
 const Footer = () => {
   return (
@@ -75,11 +75,11 @@ const Footer = () => {
             <div className="space-y-3 text-blue-100">
               <div className="flex items-center space-x-2">
                 <Clock size={16} className="text-blue-200" />
-                <span>Monday - Saturday</span>
+                <span>Monday - Friday</span>
               </div>
               <div className="text-sm">
                 <p>Morning: 9:00 AM - 12:00 PM</p>
-                <p>Evening: 3:00 PM - 8:00 PM</p>
+                <p>Evening: 3:00 PM - 7:00 PM</p>
               </div>
               <div className="text-sm">
                 <p className="text-yellow-300">Sunday: Closed</p>
@@ -90,7 +90,7 @@ const Footer = () => {
 
         <div className="border-t border-blue-600 mt-12 pt-8 text-center">
           <p className="text-blue-200">
-            © 2024 ECWDS. All rights reserved. | Designed with ❤️ for education
+            © 1998 ECWDS. All rights reserved. | Designed with ❤️ for education by <a href="https://kartavya-master.netlify.app/" className="text-blue-200 hover:text-white transition-colors">Kartavya Master <ExternalLink size={14} className="inline" /></a>
           </p>
         </div>
       </div>

@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Star, Users, Award, BookOpen } from 'lucide-react';
@@ -59,14 +58,14 @@ const Hero = () => {
 
   return (
     <>
-      <section className="hero-gradient text-white overflow-hidden relative">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
+      <section className="hero-gradient text-white overflow-hidden relative w-full">
+        <div className="max-w-[1440px] mx-auto px-6 sm:px-8 lg:px-12 py-20">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
             {/* Content */}
-            <div className="space-y-8 animate-fade-in">
-              <div className="space-y-4">
-                <h1 className="text-4xl md:text-6xl font-bold leading-tight text-white">
-                  <span className="inline-block text-white">Best Computer Classes</span>
+            <div className="space-y-8 animate-fade-in max-w-2xl">
+              <div className="space-y-6">
+                <h1 className="text-4xl md:text-6xl font-bold leading-tight text-white max-w-3xl">
+                  <span className="inline-block text-white whitespace-nowrap">Best Computer Classes</span>
                   <br />
                   <span className="text-white inline-block">in Surat</span>
                 </h1>
@@ -105,7 +104,7 @@ const Hero = () => {
               </div>
 
               {/* SEO Keywords Section */}
-              <div className="bg-white/10 p-4 rounded-lg">
+              <div className="bg-white/10 p-6 rounded-lg max-w-3xl">
                 <p className="text-sm text-blue-100">
                   <strong>Keywords:</strong> Computer Classes Surat | Computer Tuition Gujarat | Programming Classes | 
                   Computer Coaching | IT Education | Board Exam Preparation | GSEB Computer Science
@@ -113,7 +112,7 @@ const Hero = () => {
               </div>
 
               {/* Stats */}
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-6 pt-8">
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-8 pt-8">
                 {stats.map((stat, index) => (
                   <div 
                     key={index} 
