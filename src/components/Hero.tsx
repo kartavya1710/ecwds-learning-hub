@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Star, Users, Award, BookOpen } from 'lucide-react';
@@ -104,8 +103,8 @@ const Hero = () => {
                 </div>
               </div>
 
-              {/* SEO Keywords Section - Hidden on mobile, visible on larger screens */}
-              <div className="hidden sm:block bg-white/10 p-4 lg:p-6 rounded-lg max-w-3xl">
+              {/* SEO Keywords Section - Hidden on all screens */}
+              <div className="hidden bg-white/10 p-4 lg:p-6 rounded-lg max-w-3xl">
                 <p className="text-sm text-blue-100">
                   <strong>Keywords:</strong> Computer Classes Surat | Computer Tuition Gujarat | Programming Classes | 
                   Computer Coaching | IT Education | Board Exam Preparation | GSEB Computer Science
