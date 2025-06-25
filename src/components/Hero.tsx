@@ -66,9 +66,9 @@ const Hero = () => {
             <div className="space-y-6 lg:space-y-8 animate-fade-in max-w-2xl">
               <div className="space-y-4 lg:space-y-6">
                 <h1 className="text-3xl sm:text-4xl lg:text-6xl font-bold leading-tight text-white">
-                  <span className="inline-block text-white">Best Computer Classes</span>
-                  <br />
-                  <span className="text-white inline-block">in Surat</span>
+                  <span className="inline-block text-white">
+                    <span className="whitespace-nowrap">Best Computer Classes</span> in Surat
+                  </span>
                 </h1>
                 <h2 className="text-xl sm:text-2xl lg:text-3xl font-semibold text-blue-100 mb-3 lg:mb-4">
                   Divyakant Sir - 27+ Years Experience
