@@ -59,17 +59,17 @@ const Hero = () => {
   return (
     <>
       <section className="hero-gradient text-white overflow-hidden relative w-full">
-        <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-12 py-12 sm:py-16 lg:py-20">
-          <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
+        <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-12 py-8 sm:py-12 lg:py-20">
+          <div className="grid lg:grid-cols-2 gap-6 lg:gap-16 items-center">
             {/* Content */}
-            <div className="space-y-6 lg:space-y-8 animate-fade-in max-w-2xl">
-              <div className="space-y-4 lg:space-y-6">
+            <div className="space-y-4 sm:space-y-6 lg:space-y-8 animate-fade-in max-w-2xl">
+              <div className="space-y-3 sm:space-y-4 lg:space-y-6">
                 <h1 className="text-3xl sm:text-4xl lg:text-6xl font-bold leading-tight text-white">
                   <span className="inline-block text-white">
                     <span className="whitespace-nowrap">Best Computer Classes</span> in Surat
                   </span>
                 </h1>
-                <h2 className="text-xl sm:text-2xl lg:text-3xl font-semibold text-blue-100 mb-3 lg:mb-4">
+                <h2 className="text-xl sm:text-2xl lg:text-3xl font-semibold text-blue-100 mb-2 lg:mb-4">
                   Divyakant Sir - 27+ Years Experience
                 </h2>
                 <p className="text-base sm:text-lg lg:text-xl text-blue-100 leading-relaxed animate-[slideInLeft_1s_ease-out]">
@@ -112,7 +112,7 @@ const Hero = () => {
               </div>
 
               {/* Stats */}
-              <div className="grid grid-cols-2 gap-4 sm:gap-6 lg:gap-8 pt-6 lg:pt-8">
+              <div className="grid grid-cols-2 gap-4 sm:gap-6 lg:gap-8 pt-4 sm:pt-6 lg:pt-8">
                 {stats.map((stat, index) => (
                   <div 
                     key={index} 
