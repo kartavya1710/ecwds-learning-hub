@@ -17,11 +17,11 @@ const Footer = () => {
               />
               <div>
                 <h3 className="text-xl font-bold">ECWDS</h3>
-                <p className="text-sm text-blue-200">Estd. 1998</p>
+                <p className="text-sm text-blue-200">Since 1998</p>
               </div>
             </div>
             <p className="text-blue-100 leading-relaxed">
-              Surat's most trusted computer tuition classes with 22+ years of excellence in education.
+              Surat's most trusted computer tuition classes with 27+ years of excellence in education.
             </p>
             <div className="flex space-x-3">
               <a href="https://facebook.com/ecwds" className="text-blue-200 hover:text-white transition-colors">
