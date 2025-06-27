@@ -1,5 +1,5 @@
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { X, ChevronLeft, ChevronRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
@@ -12,6 +12,11 @@ interface ImageLightboxProps {
 
 const ImageLightbox = ({ images, initialIndex, isOpen, onClose }: ImageLightboxProps) => {
   const [currentIndex, setCurrentIndex] = useState(initialIndex);
+
+  // Update currentIndex when initialIndex changes
+  useEffect(() => {
+    setCurrentIndex(initialIndex);
+  }, [initialIndex]);
 
   if (!isOpen) return null;
 
