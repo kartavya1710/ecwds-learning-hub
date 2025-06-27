@@ -33,9 +33,9 @@ const SuccessHighlights = () => {
 
   const photos = [
     {
-      src: "/lovable-uploads/7d3108d6-20bc-41e4-a2bd-dc12ee814e7b.png",
+      src: "/lovable-uploads/Screenshot 2025-06-27 171023.png",
       title: "ECWDS Classroom Achievement 1",
-      description: "Students celebrating their success in computer examinations"
+      description: "Photo of Divyakant Sir with C.R Patil"
     },
     {
       src: "/lovable-uploads/199b222b-a06e-469d-8c5b-e67aee05ee31.png",
@@ -63,9 +63,9 @@ const SuccessHighlights = () => {
       description: "Advanced computer programming session"
     },
     {
-      src: "/lovable-uploads/faa0a766-6271-4fc0-aaad-ee338e899ff0.png",
+      src: "/lovable-uploads/Screenshot 2025-06-27 171013.png",
       title: "ECWDS Classroom Achievement 7",
-      description: "Students working on computer projects"
+      description: "Photo of Divyakant Sir with C.R Patil"
     },
     {
       src: "/lovable-uploads/521f5656-c4ac-4cf5-b353-033c0a71235e.png",
