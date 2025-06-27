@@ -1,10 +1,14 @@
 import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Star, Users, Award, BookOpen } from 'lucide-react';
 import AdmissionForm from '@/components/AdmissionForm';
+
 const Hero = () => {
+  const navigate = useNavigate();
   const [isAdmissionFormOpen, setIsAdmissionFormOpen] = useState(false);
   const [showAICoursePopup, setShowAICoursePopup] = useState(false);
+
   useEffect(() => {
     // Show AI course popup after 3 seconds
     const timer = setTimeout(() => {
@@ -12,6 +16,7 @@ const Hero = () => {
     }, 3000);
     return () => clearTimeout(timer);
   }, []);
+
   const stats = [{
     icon: Users,
     label: 'Students Taught',
@@ -29,6 +34,7 @@ const Hero = () => {
     label: 'Courses',
     value: '10+'
   }];
+  
   const handleViewResults = () => {
     console.log('View Results button clicked');
     // Navigate to Gallery section on same page
@@ -38,14 +44,16 @@ const Hero = () => {
         behavior: 'smooth'
       });
     } else {
-      // Fallback to gallery page if section not found
-      window.location.href = '/gallery';
+      // Use React Router navigation instead of window.location.href
+      navigate('/gallery');
     }
   };
+
   const handleEnrollNow = () => {
     console.log('Enroll Now button clicked');
     setIsAdmissionFormOpen(true);
   };
+
   return <>
       <section className="hero-gradient text-white overflow-hidden relative w-full">
         <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-12 py-8 sm:py-12 lg:py-20">
@@ -178,4 +186,5 @@ const Hero = () => {
         </div>}
     </>;
 };
+
 export default Hero;
