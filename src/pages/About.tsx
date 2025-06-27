@@ -5,10 +5,10 @@ import { Award, BookOpen, Users, Target, CheckCircle } from 'lucide-react';
 
 const About = () => {
   const achievements = [
-    "22+ years of excellence in computer education",
+    "27+ years of excellence in computer education",
     "Author of 'Computer Darpan' series of books",
     "Gujarat Board certified computer teacher",
-    "1000+ successful students across Gujarat",
+    "15000+ successful students across Gujarat",
     "Consistent top rankers in board examinations",
     "Featured in leading newspapers for educational excellence"
   ];
@@ -16,7 +16,7 @@ const About = () => {
   const qualifications = [
     {
       title: "Teaching Experience",
-      description: "22 years of dedicated computer education",
+      description: "27 years of dedicated computer education",
       icon: Users
     },
     {
@@ -31,7 +31,7 @@ const About = () => {
     },
     {
       title: "Success Rate",
-      description: "95% students achieve distinction grades",
+      description: "100% students achieve distinction grades",
       icon: Target
     }
   ];
@@ -83,7 +83,7 @@ const About = () => {
               </h2>
               <div className="text-lg text-gray-600 space-y-4">
                 <p>
-                  With over 22 years of dedicated experience in computer education, 
+                  With over 27 years of dedicated experience in computer education, 
                   Divyakant Sir has established himself as one of Gujarat's most respected 
                   computer educators. His passion for teaching and innovative methodologies 
                   have helped thousands of students achieve excellence in their academic pursuits.
