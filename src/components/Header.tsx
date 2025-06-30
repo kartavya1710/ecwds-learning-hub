@@ -1,27 +1,42 @@
+
 import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, Phone, Mail, Facebook, Instagram } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import AdmissionForm from '@/components/AdmissionForm';
+
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isAdmissionFormOpen, setIsAdmissionFormOpen] = useState(false);
   const location = useLocation();
-  const navigation = [{
-    name: 'Home',
-    href: '/'
-  }, {
-    name: 'About Us',
-    href: '/about'
-  }, {
-    name: 'Gallery',
-    href: '/gallery'
-  }, {
-    name: 'Contact',
-    href: '/contact'
-  }];
+
+  const navigation = [
+    {
+      name: 'Home',
+      href: '/'
+    },
+    {
+      name: 'About Us',
+      href: '/about'
+    },
+    {
+      name: 'Gallery',
+      href: '/gallery'
+    },
+    {
+      name: 'Articles',
+      href: '/articles'
+    },
+    {
+      name: 'Contact',
+      href: '/contact'
+    }
+  ];
+
   const isActive = (path: string) => location.pathname === path;
-  return <>
+
+  return (
+    <>
       <header className="sticky top-0 z-50 bg-white shadow-lg">
         {/* Top contact bar */}
         <div className="bg-[#1B4F72] text-white py-2 px-4">
@@ -66,9 +81,19 @@ const Header = () => {
 
             {/* Desktop Navigation */}
             <div className="hidden md:flex items-center space-x-8">
-              {navigation.map(item => <Link key={item.name} to={item.href} className={`font-medium transition-colors duration-200 ${isActive(item.href) ? 'text-[#2E86AB] border-b-2 border-[#2E86AB] pb-1' : 'text-gray-700 hover:text-[#2E86AB]'}`}>
+              {navigation.map(item => (
+                <Link
+                  key={item.name}
+                  to={item.href}
+                  className={`font-medium transition-colors duration-200 ${
+                    isActive(item.href)
+                      ? 'text-[#2E86AB] border-b-2 border-[#2E86AB] pb-1'
+                      : 'text-gray-700 hover:text-[#2E86AB]'
+                  }`}
+                >
                   {item.name}
-                </Link>)}
+                </Link>
+              ))}
               <Button className="btn-primary hover-scale" onClick={() => setIsAdmissionFormOpen(true)}>
                 Admission Open
               </Button>
@@ -83,23 +108,39 @@ const Header = () => {
           </div>
 
           {/* Mobile Navigation */}
-          {isMenuOpen && <div className="md:hidden pb-4">
+          {isMenuOpen && (
+            <div className="md:hidden pb-4">
               <div className="flex flex-col space-y-4">
-                {navigation.map(item => <Link key={item.name} to={item.href} className={`font-medium transition-colors duration-200 ${isActive(item.href) ? 'text-[#2E86AB]' : 'text-gray-700 hover:text-[#2E86AB]'}`} onClick={() => setIsMenuOpen(false)}>
+                {navigation.map(item => (
+                  <Link
+                    key={item.name}
+                    to={item.href}
+                    className={`font-medium transition-colors duration-200 ${
+                      isActive(item.href) ? 'text-[#2E86AB]' : 'text-gray-700 hover:text-[#2E86AB]'
+                    }`}
+                    onClick={() => setIsMenuOpen(false)}
+                  >
                     {item.name}
-                  </Link>)}
-                <Button className="btn-primary w-full" onClick={() => {
-              setIsAdmissionFormOpen(true);
-              setIsMenuOpen(false);
-            }}>
+                  </Link>
+                ))}
+                <Button
+                  className="btn-primary w-full"
+                  onClick={() => {
+                    setIsAdmissionFormOpen(true);
+                    setIsMenuOpen(false);
+                  }}
+                >
                   Admission Open
                 </Button>
               </div>
-            </div>}
+            </div>
+          )}
         </nav>
       </header>
 
       <AdmissionForm isOpen={isAdmissionFormOpen} onClose={() => setIsAdmissionFormOpen(false)} />
-    </>;
+    </>
+  );
 };
+
 export default Header;
