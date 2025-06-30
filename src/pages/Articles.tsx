@@ -1,31 +1,46 @@
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import ImageLightbox from '@/components/ImageLightbox';
-import { Newspaper, Calendar, Eye, Sparkles } from 'lucide-react';
+import { Newspaper, Pin, Sparkles } from 'lucide-react';
 
 const Articles = () => {
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [lightboxImages, setLightboxImages] = useState<Array<{ src: string; title: string; description: string }>>([]);
   const [lightboxIndex, setLightboxIndex] = useState(0);
+  const [randomizedArticles, setRandomizedArticles] = useState<any[]>([]);
 
+  // All article images - you can add more here
   const articles = [
     {
       src: "/lovable-uploads/79029d94-09b7-499a-81b3-3cb64e280e7a.png",
-      title: "Computer Education Excellence - Divyakant Master Featured",
-      description: "Newspaper coverage highlighting Divyakant Master's contribution to computer education in Gujarat",
+      title: "Computer Education Excellence",
+      description: "Divyakant Master featured in Gujarat Samachar",
       date: "Recent Coverage",
       publication: "Gujarat Samachar"
     },
     {
       src: "/lovable-uploads/7b73d4b0-926c-4bf9-83b0-b17b7ce1dd8f.png", 
-      title: "Board Exam Success Story - Divyakant Master's Students Excel",
-      description: "Article showcasing the remarkable performance of students under Divyakant Master's guidance",
+      title: "Board Exam Success Story",
+      description: "Students excel under Divyakant Master's guidance",
       date: "Educational Achievement",
       publication: "Local News"
     }
+    // Add more articles here as you upload them
   ];
+
+  // Randomize article positions and rotations on component mount
+  useEffect(() => {
+    const randomized = articles.map((article, index) => ({
+      ...article,
+      rotation: Math.random() * 10 - 5, // Random rotation between -5 and 5 degrees
+      scale: 0.9 + Math.random() * 0.2, // Random scale between 0.9 and 1.1
+      delay: Math.random() * 2, // Random animation delay
+      pinColor: ['red', 'blue', 'green', 'yellow', 'purple'][Math.floor(Math.random() * 5)]
+    }));
+    setRandomizedArticles(randomized);
+  }, []);
 
   const openLightbox = (index: number) => {
     setLightboxImages(articles);
@@ -36,153 +51,158 @@ const Articles = () => {
   return (
     <>
       <Header />
-      <div className="min-h-screen bg-gradient-to-br from-gray-50 to-blue-50">
+      <div className="min-h-screen bg-gradient-to-br from-amber-50 via-orange-50 to-red-50 relative overflow-hidden">
+        {/* Newspaper Background Pattern */}
+        <div className="absolute inset-0 opacity-5">
+          <div className="absolute inset-0" style={{
+            backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23000000' fill-opacity='0.1'%3E%3Ctext x='5' y='15' font-size='8' font-family='serif'%3ENews%3C/text%3E%3Ctext x='5' y='30' font-size='6'%3E━━━━━━━━━%3C/text%3E%3Ctext x='5' y='45' font-size='6'%3E━━━━━━━━━%3C/text%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+            backgroundSize: '120px 120px'
+          }}></div>
+        </div>
+
+        {/* Floating Newspaper Elements */}
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute top-20 left-10 w-8 h-8 bg-red-400/20 rounded-full animate-bounce" style={{ animationDelay: '0s' }}></div>
+          <div className="absolute top-40 right-20 w-6 h-6 bg-blue-400/20 rounded-full animate-bounce" style={{ animationDelay: '1s' }}></div>
+          <div className="absolute bottom-40 left-20 w-10 h-10 bg-yellow-400/20 rounded-full animate-bounce" style={{ animationDelay: '2s' }}></div>
+          <div className="absolute bottom-20 right-10 w-12 h-12 bg-green-400/20 rounded-full animate-bounce" style={{ animationDelay: '0.5s' }}></div>
+        </div>
+
         {/* Hero Section */}
-        <div className="relative py-20 bg-gradient-to-r from-[#2E86AB] to-[#1B4F72] overflow-hidden">
-          <div className="absolute inset-0 bg-black/10"></div>
-          <div className="absolute inset-0">
-            <div className="absolute top-10 left-10 w-32 h-32 bg-white/5 rounded-full animate-pulse"></div>
-            <div className="absolute bottom-10 right-10 w-24 h-24 bg-yellow-400/10 rounded-full animate-bounce"></div>
-            <div className="absolute top-1/2 left-1/4 w-16 h-16 bg-red-400/10 rounded-full animate-ping"></div>
-          </div>
-          
-          <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
+        <div className="relative py-16 text-center">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex items-center justify-center mb-6">
-              <Newspaper className="h-16 w-16 text-yellow-400 mr-4 animate-bounce" />
-              <Sparkles className="h-12 w-12 text-yellow-300 animate-pulse" />
+              <Newspaper className="h-16 w-16 text-red-600 mr-4 animate-bounce" />
+              <Pin className="h-12 w-12 text-blue-600 animate-pulse" />
+              <Sparkles className="h-10 w-10 text-yellow-600 animate-spin" />
             </div>
             
-            <h1 className="text-5xl md:text-6xl font-bold mb-6 animate-fade-in-up">
-              Press <span className="text-yellow-400 animate-pulse">Articles</span>
+            <h1 className="text-6xl md:text-7xl font-bold mb-6 text-gradient-enhanced">
+              Press Wall
             </h1>
             
-            <p className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto leading-relaxed animate-slide-in-up">
-              Discover media coverage and press articles featuring{' '}
-              <span className="font-bold text-yellow-400 relative">
+            <p className="text-2xl md:text-3xl mb-8 max-w-4xl mx-auto leading-relaxed text-gray-800">
+              Interactive Newspaper Wall featuring{' '}
+              <span className="font-bold text-red-600 relative">
                 Divyakant Master
-                <span className="absolute -bottom-1 left-0 w-full h-1 bg-red-500 animate-pulse"></span>
+                <span className="absolute -bottom-2 left-0 w-full h-2 bg-red-500/30 rounded-full animate-pulse"></span>
               </span>
-              {' '}and ECWDS achievements
             </p>
 
-            <div className="flex items-center justify-center space-x-8 text-lg">
-              <div className="flex items-center animate-bounce">
-                <Eye className="h-6 w-6 mr-2 text-yellow-400" />
-                <span>Featured Coverage</span>
-              </div>
-              <div className="flex items-center animate-bounce" style={{ animationDelay: '0.5s' }}>
-                <Calendar className="h-6 w-6 mr-2 text-yellow-400" />
-                <span>Latest Updates</span>
-              </div>
+            <div className="text-lg text-gray-600 mb-12">
+              📰 Click and explore • 🖊️ Red highlights • 📌 Pinned articles
             </div>
           </div>
         </div>
 
-        {/* Articles Grid */}
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">
-              Media Recognition
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Press coverage highlighting the excellence and achievements of Divyakant Master in computer education
-            </p>
-          </div>
+        {/* Interactive Newspaper Wall */}
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-20">
+          {/* Cork Board Background */}
+          <div className="relative min-h-screen rounded-3xl p-8" style={{
+            background: 'linear-gradient(45deg, #D2B48C 0%, #DEB887 50%, #F5DEB3 100%)',
+            boxShadow: 'inset 0 0 100px rgba(0,0,0,0.1), 0 20px 40px rgba(0,0,0,0.1)'
+          }}>
+            {/* Cork Board Texture Overlay */}
+            <div className="absolute inset-0 rounded-3xl opacity-20" style={{
+              backgroundImage: `url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23000000' fill-opacity='0.1'%3E%3Ccircle cx='20' cy='20' r='2'/%3E%3Ccircle cx='80' cy='40' r='1.5'/%3E%3Ccircle cx='40' cy='80' r='1'/%3E%3Ccircle cx='90' cy='90' r='2'/%3E%3Ccircle cx='10' cy='60' r='1.5'/%3E%3C/g%3E%3C/svg%3E")`
+            }}></div>
 
-          <div className="grid md:grid-cols-2 gap-12">
-            {articles.map((article, index) => (
-              <div
-                key={index}
-                className="group relative bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 cursor-pointer"
-                onClick={() => openLightbox(index)}
-              >
-                {/* Decorative Elements */}
-                <div className="absolute top-4 left-4 z-10">
-                  <div className="bg-red-500 text-white px-3 py-1 rounded-full text-sm font-semibold animate-pulse">
-                    FEATURED
-                  </div>
-                </div>
-                
-                <div className="absolute top-4 right-4 z-10">
-                  <Newspaper className="h-8 w-8 text-[#2E86AB] group-hover:animate-spin transition-all duration-300" />
-                </div>
-
-                {/* Red Highlight Effect Overlay */}
-                <div className="absolute inset-0 z-20 pointer-events-none">
-                  <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-40 h-8 bg-red-500/20 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500 animate-pulse"></div>
-                </div>
-
-                {/* Image Container */}
-                <div className="relative h-96 overflow-hidden">
-                  <img
-                    src={article.src}
-                    alt={article.title}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                  />
-                  
-                  {/* Gradient Overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-60 group-hover:opacity-40 transition-opacity duration-300"></div>
-                  
-                  {/* Red Pen Highlight Animation */}
-                  <div className="absolute bottom-20 left-6 right-6">
-                    <div className="relative">
-                      <div className="absolute inset-0 bg-red-500/30 rounded-lg transform skew-x-12 group-hover:animate-pulse"></div>
-                      <p className="relative text-white font-bold text-lg z-10 p-2">
-                        "Divyakant Master" - Highlighted in Press
-                      </p>
+            {/* Articles Grid */}
+            <div className="relative grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12">
+              {randomizedArticles.map((article, index) => (
+                <div
+                  key={index}
+                  className="relative group cursor-pointer"
+                  onClick={() => openLightbox(index)}
+                  style={{
+                    transform: `rotate(${article.rotation}deg) scale(${article.scale})`,
+                    transformOrigin: 'center',
+                    animation: `fadeInUp 0.8s ease-out ${article.delay}s both`
+                  }}
+                >
+                  {/* Push Pin */}
+                  <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 z-20">
+                    <div className={`w-6 h-6 bg-${article.pinColor}-500 rounded-full shadow-lg flex items-center justify-center group-hover:scale-110 transition-transform duration-300`}>
+                      <div className="w-2 h-2 bg-white rounded-full"></div>
                     </div>
+                    <div className={`w-1 h-4 bg-${article.pinColor}-400 mx-auto`}></div>
                   </div>
+
+                  {/* Article Card */}
+                  <div className="bg-white rounded-lg shadow-2xl overflow-hidden group-hover:shadow-3xl transition-all duration-500 transform group-hover:-translate-y-2 group-hover:rotate-0">
+                    {/* Tape Effect */}
+                    <div className="absolute top-4 left-4 w-16 h-8 bg-yellow-200/80 transform -rotate-12 z-10 shadow-md">
+                      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent"></div>
+                    </div>
+                    <div className="absolute top-4 right-4 w-12 h-6 bg-yellow-200/80 transform rotate-12 z-10 shadow-md">
+                      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent"></div>
+                    </div>
+
+                    {/* Image Container */}
+                    <div className="relative h-64 md:h-80 overflow-hidden">
+                      <img
+                        src={article.src}
+                        alt={article.title}
+                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                      />
+                      
+                      {/* Red Highlight Overlay */}
+                      <div className="absolute inset-0 pointer-events-none">
+                        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-40 h-6 bg-red-500/40 rounded-lg transform -rotate-2 group-hover:animate-pulse"></div>
+                        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-red-700 font-bold text-sm bg-white/80 px-2 py-1 rounded shadow-lg">
+                          "Divyakant Master"
+                        </div>
+                      </div>
+
+                      {/* Vintage Paper Edge Effect */}
+                      <div className="absolute inset-0 border-4 border-yellow-100/50 group-hover:border-red-200/50 transition-colors duration-300"></div>
+                    </div>
+
+                    {/* Article Info */}
+                    <div className="p-4 bg-gradient-to-b from-white to-gray-50">
+                      <div className="flex items-center justify-between mb-2">
+                        <span className={`bg-${article.pinColor}-100 text-${article.pinColor}-800 px-2 py-1 rounded-full text-xs font-semibold`}>
+                          {article.publication}
+                        </span>
+                        <span className="text-gray-500 text-xs">{article.date}</span>
+                      </div>
+                      
+                      <h3 className="text-lg font-bold text-gray-900 mb-2 group-hover:text-red-600 transition-colors duration-300">
+                        {article.title}
+                      </h3>
+                      
+                      <p className="text-gray-600 text-sm leading-relaxed">
+                        {article.description}
+                      </p>
+
+                      {/* Red Pen Scribble */}
+                      <div className="mt-3 flex items-center text-red-600 font-semibold text-sm">
+                        <div className="w-4 h-4 border-2 border-red-500 rounded-full mr-2 group-hover:animate-spin"></div>
+                        Featured Coverage
+                      </div>
+                    </div>
+
+                    {/* Hover Glow Effect */}
+                    <div className="absolute inset-0 bg-gradient-to-r from-red-400/0 via-red-400/10 to-red-400/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                  </div>
+
+                  {/* Shadow Effect */}
+                  <div className="absolute inset-0 bg-black/20 rounded-lg transform translate-x-2 translate-y-2 -z-10 group-hover:translate-x-4 group-hover:translate-y-4 transition-transform duration-300"></div>
                 </div>
+              ))}
+            </div>
 
-                {/* Content */}
-                <div className="p-8">
-                  <div className="flex items-center justify-between mb-4">
-                    <span className="bg-[#2E86AB]/10 text-[#2E86AB] px-3 py-1 rounded-full text-sm font-semibold">
-                      {article.publication}
-                    </span>
-                    <span className="text-gray-500 text-sm">{article.date}</span>
-                  </div>
-                  
-                  <h3 className="text-2xl font-bold text-gray-900 mb-3 group-hover:text-[#2E86AB] transition-colors duration-300">
-                    {article.title}
-                  </h3>
-                  
-                  <p className="text-gray-600 leading-relaxed mb-6">
-                    {article.description}
-                  </p>
-
-                  <div className="flex items-center text-[#2E86AB] font-semibold group-hover:gap-2 transition-all duration-300">
-                    <span>Read Full Article</span>
-                    <svg
-                      className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                    </svg>
-                  </div>
+            {/* Add More Articles Button */}
+            <div className="text-center mt-16">
+              <div className="inline-block bg-white rounded-2xl shadow-xl p-8 transform hover:scale-105 transition-transform duration-300">
+                <Newspaper className="h-12 w-12 text-red-600 mx-auto mb-4 animate-bounce" />
+                <h3 className="text-2xl font-bold text-gray-900 mb-2">More Articles Coming Soon!</h3>
+                <p className="text-gray-600 mb-4">Stay tuned for more press coverage</p>
+                <div className="flex items-center justify-center space-x-2">
+                  <div className="w-2 h-2 bg-red-500 rounded-full animate-bounce"></div>
+                  <div className="w-2 h-2 bg-blue-500 rounded-full animate-bounce" style={{ animationDelay: '0.1s' }}></div>
+                  <div className="w-2 h-2 bg-yellow-500 rounded-full animate-bounce" style={{ animationDelay: '0.2s' }}></div>
                 </div>
-
-                {/* Hover Border Effect */}
-                <div className="absolute inset-0 border-4 border-transparent group-hover:border-red-400/50 rounded-2xl transition-all duration-300"></div>
-              </div>
-            ))}
-          </div>
-
-          {/* Call to Action */}
-          <div className="text-center mt-20">
-            <div className="bg-white rounded-2xl shadow-xl p-12 max-w-4xl mx-auto">
-              <h3 className="text-3xl font-bold text-gray-900 mb-4">
-                More Press Coverage Coming Soon
-              </h3>
-              <p className="text-xl text-gray-600 mb-8">
-                Stay tuned for more media recognition and articles featuring Divyakant Master's educational excellence
-              </p>
-              <div className="flex items-center justify-center space-x-4">
-                <div className="w-3 h-3 bg-red-500 rounded-full animate-bounce"></div>
-                <div className="w-3 h-3 bg-[#2E86AB] rounded-full animate-bounce" style={{ animationDelay: '0.1s' }}></div>
-                <div className="w-3 h-3 bg-yellow-500 rounded-full animate-bounce" style={{ animationDelay: '0.2s' }}></div>
               </div>
             </div>
           </div>
