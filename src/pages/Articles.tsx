@@ -3,7 +3,7 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import ImageLightbox from '@/components/ImageLightbox';
 import ArticleHero from '@/components/ArticleHero';
-import ArticleWall from '@/components/ArticleWall';
+import MagazineLayout from '@/components/MagazineLayout';
 
 const Articles = () => {
   const [lightboxOpen, setLightboxOpen] = useState(false);
@@ -14,122 +14,122 @@ const Articles = () => {
   const articles = [
     {
       src: "/lovable-uploads/WhatsApp Image 2025-06-30 at 21.10.55_d03300c4.jpg",
-      title: "Computer Education Excellence",
-      description: "Divyakant Master featured in Gujarat Samachar",
-      date: "Recent Coverage",
+      title: "Revolutionary Computer Education: How Divyakant Master is Transforming Lives",
+      description: "An in-depth look at the innovative teaching methods that have made Divyakant Master a household name in computer education across Gujarat.",
+      date: "December 2024",
       publication: "Gujarat Samachar"
     },
     {
       src: "/lovable-uploads/WhatsApp Image 2025-06-30 at 21.10.55_d03300c4.jpg", 
-      title: "Board Exam Success Story",
-      description: "Students excel under Divyakant Master's guidance",
-      date: "Educational Achievement",
-      publication: "Local News"
-    },
-    {
-      src: "/lovable-uploads/WhatsApp Image 2025-06-30 at 21.10.55_d03300c4.jpg",
-      title: "Educational Innovation",
-      description: "Divyakant Master's innovative teaching methods",
-      date: "Innovation Coverage",
+      title: "Board Exam Success: The Divyakant Master Methodology",
+      description: "Exclusive interview revealing the secrets behind the 100% success rate that has made thousands of students excel in their computer science exams.",
+      date: "November 2024",
       publication: "Education Today"
     },
     {
+      src: "/lovable-uploads/WhatsApp Image 2025-06-30 at 21.10.55_d03300c4.jpg",
+      title: "From Classroom to Digital: 27 Years of Educational Innovation",
+      description: "The remarkable journey of Gujarat's most celebrated computer teacher and his adaptation to modern educational challenges.",
+      date: "October 2024",
+      publication: "Tech Tribune"
+    },
+    {
       src: "/lovable-uploads/WhatsApp Image 2025-06-30 at 21.10.56_c5d15c63.jpg",
-      title: "Student Success Story",
-      description: "Outstanding results in computer education",
-      date: "Achievement News",
-      publication: "Academic Times"
+      title: "Student Mentorship Excellence: Creating Future Leaders",
+      description: "How personalized guidance and mentorship have shaped the careers of over 15,000 students.",
+      date: "September 2024",
+      publication: "Academic Review"
     },
     {
       src: "/lovable-uploads/WhatsApp Image 2025-06-30 at 21.10.56_e16b0093.jpg",
-      title: "Technology in Education",
-      description: "Modern teaching approaches by Divyakant Master",
-      date: "Tech Education",
+      title: "Technology in Education: A Pioneer's Perspective",
+      description: "Exploring how modern technology integration has revolutionized traditional teaching methods.",
+      date: "August 2024",
       publication: "Digital Learning"
     },
     {
       src: "/lovable-uploads/WhatsApp Image 2025-06-30 at 21.10.56_57e4f57c.jpg",
-      title: "Community Impact",
-      description: "Divyakant Master's contribution to local education",
-      date: "Community News",
+      title: "Community Impact: Beyond the Classroom",
+      description: "The broader social impact of quality education and how one teacher changed an entire community.",
+      date: "July 2024",
       publication: "Local Herald"
     },
     {
       src: "/lovable-uploads/WhatsApp Image 2025-06-30 at 21.10.56_05502772.jpg",
-      title: "Educational Leadership",
-      description: "Leading by example in computer education",
-      date: "Leadership Feature",
+      title: "Educational Leadership in Action",
+      description: "Leading by example: How authentic leadership transforms educational outcomes.",
+      date: "June 2024",
       publication: "Education Leader"
     },
     {
       src: "/lovable-uploads/WhatsApp Image 2025-06-30 at 21.10.56_05502772.jpg",
-      title: "Academic Excellence",
-      description: "Recognition for outstanding teaching methods",
-      date: "Excellence Award",
-      publication: "Academic Review"
+      title: "Academic Excellence Recognition",
+      description: "State recognition for outstanding contribution to computer science education.",
+      date: "May 2024",
+      publication: "State Education Board"
     },
     {
       src: "/lovable-uploads/WhatsApp Image 2025-06-30 at 21.10.56_d7b09d2b.jpg",
-      title: "Digital Education Pioneer",
-      description: "Pioneering digital education in the region",
-      date: "Pioneer Story",
-      publication: "Tech Tribune"
+      title: "Digital Education Pioneer: Shaping Tomorrow",
+      description: "Pioneering digital education initiatives that set new standards across Gujarat.",
+      date: "April 2024",
+      publication: "Innovation Weekly"
     },
     {
       src: "/lovable-uploads/WhatsApp Image 2025-06-30 at 21.10.56_a6a88aee.jpg",
-      title: "Student Mentorship",
-      description: "Exceptional mentorship in computer sciences",
-      date: "Mentorship Feature",
-      publication: "Student Voice"
-    },
-    {
-      src: "/lovable-uploads/WhatsApp Image 2025-06-30 at 21.10.56_b97db6f6.jpg",
-      title: "Teaching Innovation",
-      description: "Revolutionary teaching techniques showcase",
-      date: "Innovation News",
+      title: "The Art of Teaching: Science Meets Passion",
+      description: "An exclusive feature on the teaching philosophy that creates lifelong learners.",
+      date: "March 2024",
       publication: "Teaching Today"
     },
     {
+      src: "/lovable-uploads/WhatsApp Image 2025-06-30 at 21.10.56_b97db6f6.jpg",
+      title: "Innovation in Action: Real Results",
+      description: "Case studies showcasing innovative teaching techniques and their measurable impact.",
+      date: "February 2024",
+      publication: "Research Quarterly"
+    },
+    {
       src: "/lovable-uploads/WhatsApp Image 2025-06-30 at 21.10.56_9e1ccd81.jpg",
-      title: "Educational Impact",
-      description: "Transforming lives through computer education",
-      date: "Impact Story",
+      title: "Transforming Lives Through Education",
+      description: "Personal stories from students whose lives were changed through quality computer education.",
+      date: "January 2024",
       publication: "Change Makers"
     },
     {
       src: "/lovable-uploads/WhatsApp Image 2025-06-30 at 21.10.56_14450fc8.jpg",
-      title: "Educational Impact",
-      description: "Transforming lives through computer education",
-      date: "Impact Story",
-      publication: "Change Makers"
+      title: "Excellence in STEM Education",
+      description: "Advancing STEM education through innovative computer science curricula and methods.",
+      date: "December 2023",
+      publication: "STEM Today"
     },
     {
       src: "/lovable-uploads/WhatsApp Image 2025-06-30 at 21.10.56_79c14e18.jpg",
-      title: "Educational Impact",
-      description: "Transforming lives through computer education",
-      date: "Impact Story",
-      publication: "Change Makers"
+      title: "Building Tomorrow's Workforce",
+      description: "Preparing students for the digital economy through comprehensive computer education.",
+      date: "November 2023",
+      publication: "Future Skills"
     },
     {
       src: "/lovable-uploads/WhatsApp Image 2025-06-30 at 21.10.56_3e2a8dd7.jpg",
-      title: "Educational Impact",
-      description: "Transforming lives through computer education",
-      date: "Impact Story",
-      publication: "Change Makers"
+      title: "Educational Innovation Awards",
+      description: "Recognition for outstanding contribution to educational methodology and student success.",
+      date: "October 2023",
+      publication: "Awards Today"
     },
     {
       src: "/lovable-uploads/WhatsApp Image 2025-06-30 at 21.10.56_90e50514.jpg",
-      title: "Educational Impact",
-      description: "Transforming lives through computer education",
-      date: "Impact Story",
-      publication: "Change Makers"
+      title: "Success Stories: Real Impact",
+      description: "Documenting the success stories of students who achieved excellence through dedicated guidance.",
+      date: "September 2023",
+      publication: "Success Stories"
     },
     {
       src: "/lovable-uploads/WhatsApp Image 2025-06-30 at 21.10.56_5c9104f5.jpg",
-      title: "Educational Impact",
-      description: "Transforming lives through computer education",
-      date: "Impact Story",
-      publication: "Change Makers"
+      title: "The Future of Computer Education",
+      description: "Vision and strategies for the next generation of computer science education in India.",
+      date: "August 2023",
+      publication: "Future Ed"
     }
   ];
 
@@ -152,7 +152,7 @@ const Articles = () => {
         </div>
 
         <ArticleHero />
-        <ArticleWall articles={articles} onOpenLightbox={openLightbox} />
+        <MagazineLayout articles={articles} onOpenLightbox={openLightbox} />
       </div>
       
       <Footer />
