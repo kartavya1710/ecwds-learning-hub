@@ -54,39 +54,27 @@ const MagazineLayout = ({ articles, onOpenLightbox }: MagazineLayoutProps) => {
           {featuredArticles.length > 0 && (
             <section className="mb-12">
               <div className="border-b-2 border-[#2E86AB] pb-4 mb-8">
-                <h3 className="text-2xl font-bold text-gray-800 uppercase tracking-wide">Featured Stories</h3>
+                <h3 className="text-2xl font-bold text-gray-800 uppercase tracking-wide">Featured Press Coverage</h3>
               </div>
               
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+              <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
                 {/* Hero Article */}
                 {featuredArticles[0] && (
                   <div 
                     className="lg:col-span-2 cursor-pointer group"
                     onClick={() => onOpenLightbox(0)}
                   >
-                    <div className="relative overflow-hidden rounded-xl">
+                    <div className="relative overflow-hidden rounded-xl shadow-lg">
                       <img 
                         src={featuredArticles[0].src} 
                         alt={featuredArticles[0].title}
                         className="w-full h-80 md:h-96 object-cover transition-transform duration-500 group-hover:scale-105"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
-                      <div className="absolute bottom-0 left-0 right-0 p-8 text-white">
-                        <div className="flex items-center mb-4">
-                          <span className="bg-[#2E86AB] px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wide">
-                            {featuredArticles[0].publication}
-                          </span>
-                          <div className="ml-4 flex items-center text-sm">
-                            <Clock className="w-4 h-4 mr-1" />
-                            {featuredArticles[0].readTime} min read
-                          </div>
-                        </div>
-                        <h2 className="text-3xl md:text-4xl font-bold mb-3 leading-tight">
-                          {featuredArticles[0].title}
-                        </h2>
-                        <p className="text-lg text-gray-200 leading-relaxed">
-                          {featuredArticles[0].description}
-                        </p>
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                      <div className="absolute bottom-4 left-4">
+                        <span className="bg-[#2E86AB] text-white px-3 py-1 rounded-full text-sm font-semibold">
+                          Press Feature
+                        </span>
                       </div>
                     </div>
                   </div>
@@ -97,30 +85,21 @@ const MagazineLayout = ({ articles, onOpenLightbox }: MagazineLayoutProps) => {
                   {featuredArticles.slice(1, 3).map((article, index) => (
                     <div 
                       key={index + 1}
-                      className="flex gap-4 cursor-pointer group"
+                      className="cursor-pointer group"
                       onClick={() => onOpenLightbox(index + 1)}
                     >
-                      <div className="relative w-32 h-24 flex-shrink-0 overflow-hidden rounded-lg">
+                      <div className="relative overflow-hidden rounded-lg shadow-md">
                         <img 
                           src={article.src} 
                           alt={article.title}
-                          className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                          className="w-full h-32 object-cover transition-transform duration-300 group-hover:scale-105"
                         />
-                      </div>
-                      <div className="flex-1">
-                        <div className="flex items-center mb-2">
-                          <span className="text-xs font-semibold text-[#2E86AB] uppercase tracking-wide">
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                        <div className="absolute bottom-2 left-2">
+                          <span className="bg-white/90 text-[#2E86AB] px-2 py-1 rounded text-xs font-semibold">
                             {article.publication}
                           </span>
-                          <span className="mx-2 text-gray-400">•</span>
-                          <span className="text-xs text-gray-500">{article.date}</span>
                         </div>
-                        <h3 className="font-bold text-gray-800 text-sm mb-2 leading-tight line-clamp-2">
-                          {article.title}
-                        </h3>
-                        <p className="text-xs text-gray-600 line-clamp-2">
-                          {article.description}
-                        </p>
                       </div>
                     </div>
                   ))}
@@ -129,64 +108,33 @@ const MagazineLayout = ({ articles, onOpenLightbox }: MagazineLayoutProps) => {
             </section>
           )}
 
-          {/* Regular Articles Grid */}
+          {/* Image Gallery Grid */}
           <section>
             <div className="border-b-2 border-gray-300 pb-4 mb-8">
-              <h3 className="text-2xl font-bold text-gray-800 uppercase tracking-wide">More Stories</h3>
+              <h3 className="text-2xl font-bold text-gray-800 uppercase tracking-wide">Press Gallery</h3>
             </div>
             
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
               {regularArticles.map((article, index) => (
-                <article 
+                <div 
                   key={index + 3}
                   className="cursor-pointer group"
                   onClick={() => onOpenLightbox(index + 3)}
                 >
-                  <div className="relative overflow-hidden rounded-lg mb-4">
+                  <div className="relative overflow-hidden rounded-lg shadow-md aspect-square">
                     <img 
                       src={article.src} 
                       alt={article.title}
-                      className="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-105"
+                      className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
                     />
-                    <div className="absolute top-3 left-3">
-                      <span className="bg-white/90 backdrop-blur-sm text-[#2E86AB] px-2 py-1 rounded text-xs font-semibold">
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    <div className="absolute bottom-2 left-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      <span className="bg-white/90 text-[#2E86AB] px-2 py-1 rounded text-xs font-semibold">
                         {article.publication}
                       </span>
                     </div>
                   </div>
-                  
-                  <div className="space-y-3">
-                    <div className="flex items-center text-xs text-gray-500 space-x-4">
-                      <span>{article.date}</span>
-                      <div className="flex items-center">
-                        <Eye className="w-3 h-3 mr-1" />
-                        {article.views}
-                      </div>
-                      <div className="flex items-center">
-                        <Clock className="w-3 h-3 mr-1" />
-                        {article.readTime}m
-                      </div>
-                    </div>
-                    
-                    <h3 className="font-bold text-gray-800 text-lg leading-tight line-clamp-2 group-hover:text-[#2E86AB] transition-colors">
-                      {article.title}
-                    </h3>
-                    
-                    <p className="text-gray-600 text-sm leading-relaxed line-clamp-3">
-                      {article.description}
-                    </p>
-                    
-                    <div className="pt-2 border-t border-gray-200">
-                      <div className="flex items-center justify-between">
-                        <div className="flex items-center text-[#2E86AB] font-semibold text-sm">
-                          <BookOpen className="w-4 h-4 mr-1" />
-                          Read Article
-                        </div>
-                        <Award className="w-5 h-5 text-yellow-500" />
-                      </div>
-                    </div>
-                  </div>
-                </article>
+                </div>
               ))}
             </div>
           </section>
