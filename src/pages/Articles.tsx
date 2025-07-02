@@ -142,11 +142,11 @@ const Articles = () => {
   return (
     <>
       <Header />
-      <div className="min-h-screen bg-[#1e3a8a] relative overflow-hidden">
-        {/* Newspaper Background Pattern */}
-        <div className="absolute inset-0 opacity-10">
+      <div className="min-h-screen hero-gradient relative overflow-hidden">
+        {/* Professional Background Pattern */}
+        <div className="absolute inset-0 opacity-5">
           <div className="absolute inset-0" style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Ctext x='5' y='15' font-size='8' font-family='serif'%3ENews%3C/text%3E%3Ctext x='5' y='30' font-size='6'%3E━━━━━━━━━%3C/text%3E%3Ctext x='5' y='45' font-size='6'%3E━━━━━━━━━%3C/text%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+            backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%232E86AB' fill-opacity='0.1'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
             backgroundSize: '120px 120px'
           }}></div>
         </div>
