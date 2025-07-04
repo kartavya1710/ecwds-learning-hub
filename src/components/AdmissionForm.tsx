@@ -3,6 +3,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { X, User, Mail, Phone, GraduationCap, Calendar, CheckCircle } from 'lucide-react';
+import { supabase } from '@/supabaseClient';
 
 interface AdmissionFormProps {
   isOpen: boolean;
@@ -23,16 +24,27 @@ const AdmissionForm = ({ isOpen, onClose }: AdmissionFormProps) => {
   
   const [showSuccessModal, setShowSuccessModal] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
-    // Simulate sending data to admin (you would integrate with your backend here)
-    console.log('Form Data Submitted:', formData);
-    console.log('Admin SMS should be sent to: +919825472797');
-    
+    // Insert form data into Supabase Student table
+    const { error } = await supabase.from('Student').insert([
+      {
+        studentName: formData.studentName,
+        parentName: formData.parentName,
+        email: formData.email,
+        phone: formData.phone,
+        standard: formData.standard,
+        school: formData.school,
+        previousExperience: formData.previousExperience,
+        message: formData.message
+      }
+    ]);
+    if (error) {
+      alert('There was an error submitting your application. Please try again.');
+      return;
+    }
     // Always show success modal
     setShowSuccessModal(true);
-    
     // Reset form
     setFormData({
       studentName: '',
@@ -276,7 +288,7 @@ const AdmissionForm = ({ isOpen, onClose }: AdmissionFormProps) => {
                 <Button 
                   className="w-full bg-green-600 hover:bg-green-700 text-white"
                   onClick={() => {
-                    const message = encodeURIComponent(`Hi Sir, I just submitted my admission application for ECWDS. My name is ${formData.studentName}. Please guide me about the next steps.`);
+                    const message = encodeURIComponent(`Hi Sir, I just submitted my admission application for ECWDS. Please guide me about the next steps.`);
                     window.open(`https://wa.me/919825472797?text=${message}`, '_blank');
                   }}
                 >
