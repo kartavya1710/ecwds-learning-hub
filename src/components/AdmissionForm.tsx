@@ -23,24 +23,22 @@ const AdmissionForm = ({ isOpen, onClose }: AdmissionFormProps) => {
   });
   
   const [showSuccessModal, setShowSuccessModal] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     // Insert form data into Supabase Student table
     const { error } = await supabase.from('Student').insert([
       {
-        studentName: formData.studentName,
-        parentName: formData.parentName,
-        email: formData.email,
-        phone: formData.phone,
+        name: formData.studentName,
         standard: formData.standard,
         school: formData.school,
-        previousExperience: formData.previousExperience,
-        message: formData.message
+        phone_number: formData.phone
       }
     ]);
     if (error) {
-      alert('There was an error submitting your application. Please try again.');
+      console.error('Supabase insert error:', error);
+      alert('There was an error submitting your application: ' + error.message);
       return;
     }
     // Always show success modal
@@ -245,8 +243,8 @@ const AdmissionForm = ({ isOpen, onClose }: AdmissionFormProps) => {
               <Button type="button" variant="outline" onClick={onClose} className="flex-1">
                 Cancel
               </Button>
-              <Button type="submit" className="btn-primary flex-1">
-                Submit Application
+              <Button type="submit" className="btn-primary flex-1" disabled={isSubmitting}>
+                {isSubmitting ? 'Submitting...' : 'Submit Application'}
               </Button>
             </div>
           </form>
