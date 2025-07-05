@@ -16,7 +16,7 @@ const Header = () => {
       href: '/'
     },
     {
-      name: 'About Us',
+      name: 'Author',
       href: '/about'
     },
     {
