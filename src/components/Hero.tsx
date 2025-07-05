@@ -8,6 +8,14 @@ const Hero = () => {
   const navigate = useNavigate();
   const [isAdmissionFormOpen, setIsAdmissionFormOpen] = useState(false);
   const [showAICoursePopup, setShowAICoursePopup] = useState(false);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  const heroImages = [
+    "/lovable-uploads/e1673b96-7401-48ab-9e9d-24ba2ef00c3e.png",
+    "/lovable-uploads/d24963db-61df-43f3-8bc6-b99145b16731.png",
+    "/lovable-uploads/be2ea5d8-55a5-4008-a0de-899ce4a93891.png",
+    "/lovable-uploads/c28807ee-879b-4269-b44a-81473193e53e.png"
+  ];
 
   useEffect(() => {
     // Show AI course popup after 3 seconds
@@ -16,6 +24,17 @@ const Hero = () => {
     }, 3000);
     return () => clearTimeout(timer);
   }, []);
+
+  useEffect(() => {
+    // Auto-change images every 2 seconds
+    const imageTimer = setInterval(() => {
+      setCurrentImageIndex((prevIndex) => 
+        (prevIndex + 1) % heroImages.length
+      );
+    }, 2000);
+    
+    return () => clearInterval(imageTimer);
+  }, [heroImages.length]);
 
   const stats = [{
     icon: Users,
@@ -115,22 +134,27 @@ const Hero = () => {
             {/* Divyakant Sir Photo */}
             <div className="relative animate-scale-in order-first lg:order-last">
               <div className="relative rounded-2xl overflow-hidden shadow-2xl transform rotate-1 sm:rotate-2 hover:rotate-0 transition-transform duration-500 hover-scale cursor-pointer">
-                <img src="/lovable-uploads/e1673b96-7401-48ab-9e9d-24ba2ef00c3e.png" alt="Divyakant Sir - Best Computer Teacher in Surat, Gujarat" className="w-full h-auto" onClick={() => {
-                // Open image in lightbox
-                const lightboxImages = [{
-                  src: "/lovable-uploads/e1673b96-7401-48ab-9e9d-24ba2ef00c3e.png",
-                  title: "Divyakant Sir - Expert Computer Teacher",
-                  description: "27 years of experience in computer education"
-                }];
-                // Create and dispatch custom event for lightbox
-                const event = new CustomEvent('openLightbox', {
-                  detail: {
-                    images: lightboxImages,
-                    index: 0
-                  }
-                });
-                window.dispatchEvent(event);
-              }} />
+                <img 
+                  src={heroImages[currentImageIndex]} 
+                  alt="Divyakant Sir - Best Computer Teacher in Surat, Gujarat" 
+                  className="w-full h-auto transition-opacity duration-500" 
+                  onClick={() => {
+                    // Open image in lightbox with all images
+                    const lightboxImages = heroImages.map((src, index) => ({
+                      src,
+                      title: `Divyakant Sir - Expert Computer Teacher ${index + 1}`,
+                      description: "27 years of experience in computer education"
+                    }));
+                    // Create and dispatch custom event for lightbox
+                    const event = new CustomEvent('openLightbox', {
+                      detail: {
+                        images: lightboxImages,
+                        index: currentImageIndex
+                      }
+                    });
+                    window.dispatchEvent(event);
+                  }} 
+                />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
               </div>
               
