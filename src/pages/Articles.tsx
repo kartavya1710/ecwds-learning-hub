@@ -13,7 +13,7 @@ const Articles = () => {
   // All article images with the new 10 photos added
   const articles = [
     {
-      src: "/lovable-uploads/WhatsApp Image 2025-06-30 at 21.10.55_d03300c4.jpg",
+      src: "/lovable-uploads/WhatsApp Image 2025-07-05 at 16.19.41_adc9c618.jpg",
       title: "Revolutionary Computer Education: How Divyakant Master is Transforming Lives",
       description: "An in-depth look at the innovative teaching methods that have made Divyakant Master a household name in computer education across Gujarat.",
       date: "December 2024",
@@ -27,7 +27,7 @@ const Articles = () => {
       publication: "Education Today"
     },
     {
-      src: "/lovable-uploads/WhatsApp Image 2025-06-30 at 21.10.55_d03300c4.jpg",
+      src: "/lovable-uploads/WhatsApp Image 2025-06-30 at 21.10.56_b97db6f6.jpg",
       title: "From Classroom to Digital: 27 Years of Educational Innovation",
       description: "The remarkable journey of Gujarat's most celebrated computer teacher and his adaptation to modern educational challenges.",
       date: "October 2024",
@@ -56,13 +56,6 @@ const Articles = () => {
     },
     {
       src: "/lovable-uploads/WhatsApp Image 2025-06-30 at 21.10.56_05502772.jpg",
-      title: "Educational Leadership in Action",
-      description: "Leading by example: How authentic leadership transforms educational outcomes.",
-      date: "June 2024",
-      publication: "Education Leader"
-    },
-    {
-      src: "/lovable-uploads/WhatsApp Image 2025-06-30 at 21.10.56_05502772.jpg",
       title: "Academic Excellence Recognition",
       description: "State recognition for outstanding contribution to computer science education.",
       date: "May 2024",
@@ -74,14 +67,7 @@ const Articles = () => {
       description: "Pioneering digital education initiatives that set new standards across Gujarat.",
       date: "April 2024",
       publication: "Innovation Weekly"
-    },
-    {
-      src: "/lovable-uploads/WhatsApp Image 2025-06-30 at 21.10.56_a6a88aee.jpg",
-      title: "The Art of Teaching: Science Meets Passion",
-      description: "An exclusive feature on the teaching philosophy that creates lifelong learners.",
-      date: "March 2024",
-      publication: "Teaching Today"
-    },
+    },  
     {
       src: "/lovable-uploads/WhatsApp Image 2025-06-30 at 21.10.56_b97db6f6.jpg",
       title: "Innovation in Action: Real Results",

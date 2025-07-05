@@ -43,7 +43,7 @@ const SuccessHighlights = () => {
       description: "Interactive learning session with Divyakant Sir"
     },
     {
-      src: "/lovable-uploads/c28807ee-879b-4269-b44a-81473193e53e.png",
+      src: "/lovable-uploads/be2ea5d8-55a5-4008-a0de-899ce4a93891.png",
       title: "ECWDS Classroom Achievement 3",
       description: "Practical computer training in progress"
     },
@@ -68,7 +68,7 @@ const SuccessHighlights = () => {
       description: "Photo of Divyakant Sir with C.R Patil"
     },
     {
-      src: "/lovable-uploads/521f5656-c4ac-4cf5-b353-033c0a71235e.png",
+      src: "/gallery/results/Screenshot 2025-06-27 170909.png",
       title: "ECWDS Classroom Achievement 8",
       description: "Examination preparation and practice session"
     }

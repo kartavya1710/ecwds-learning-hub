@@ -50,9 +50,9 @@ const Contact = () => {
                     <div>
                       <h3 className="font-semibold text-gray-900">Address</h3>
                       <p className="text-gray-600">
-                        ECWDS Computer Classes<br />
-                        Near Yogi Chowk, Surat<br />
-                        Gujarat, India
+                        <b>1. City Light Branch :</b> M-14,15, Citylight Complex, Opp. Dev Darshan Apartment, Near SMC Vegetable Market, Opp. Maheshwari Bhavan, In the lane of US pizza petrol pump, Near Science Centre, Citylight Road.<br /><br />
+                        <b>2. Nanpura Branch :</b> 4th Floor(Leaf Drive Classes), President Plaza Complex, Beside Mahavir Cardiac Hospital, Opp. Vanita Vishram Ground, Athwagate, Surat.<br /><br /> 
+                        <b>3. Pal Branch :</b> 219, Royal Titanium Complex, Opp. Seven Steps School, Palanpore Canal Road, Pal, Adajan.<br /><br />
                       </p>
                     </div>
                   </div>

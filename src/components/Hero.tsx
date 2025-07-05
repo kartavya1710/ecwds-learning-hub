@@ -13,9 +13,11 @@ const Hero = () => {
 
   const heroImages = [
     "/lovable-uploads/e1673b96-7401-48ab-9e9d-24ba2ef00c3e.png",
-    "/lovable-uploads/d24963db-61df-43f3-8bc6-b99145b16731.png",
+    "/lovable-uploads/Citylight.jpg",
     "/lovable-uploads/be2ea5d8-55a5-4008-a0de-899ce4a93891.png",
-    "/lovable-uploads/c28807ee-879b-4269-b44a-81473193e53e.png"
+    "/lovable-uploads/Nanpura branch.jpg",
+    "/lovable-uploads/Nanpura.jpg",
+    "/lovable-uploads/Pal Branch.jpg",
   ];
 
   useEffect(() => {
