@@ -5,57 +5,62 @@ import { Award, BookOpen, Users, Target, CheckCircle } from 'lucide-react';
 
 const About = () => {
   const achievements = [
-    "27+ years of excellence in computer education",
-    "Author of 'Computer Darpan' series of books",
-    "Gujarat Board certified computer teacher",
-    "15000+ successful students across Gujarat",
-    "Consistent top rankers in board examinations",
-    "Featured in leading newspapers for educational excellence"
+    "Comprehensive coverage of Gujarat Board syllabus",
+    "Step-by-step explanations with practical examples",
+    "English and Gujarati medium editions available",
+    "Practice exercises and sample question papers",
+    "Real-world programming projects and applications",
+    "Used by thousands of students across Gujarat"
   ];
 
-  const qualifications = [
+  const bookSeries = [
     {
-      title: "Teaching Experience",
-      description: "27 years of dedicated computer education",
-      icon: Users
-    },
-    {
-      title: "Author & Publisher",
-      description: "Computer Darpan series for Std. 10, 11 & 12",
+      title: "Standard 10",
+      description: "Foundation concepts and basic programming principles",
       icon: BookOpen
     },
     {
-      title: "Board Recognition",
-      description: "Gujarat Secondary & Higher Secondary Education Board",
-      icon: Award
+      title: "Standard 11", 
+      description: "Advanced programming and application development",
+      icon: BookOpen
     },
     {
-      title: "Success Rate",
-      description: "100% students achieve distinction grades",
-      icon: Target
+      title: "Standard 12",
+      description: "Professional applications and project development",
+      icon: BookOpen
+    },
+    {
+      title: "Gujarat Board Approved",
+      description: "Officially recognized by Gujarat Education Board",
+      icon: Award
     }
   ];
 
-  const aboutImages = [
+  const bookImages = [
     {
-      src: '/lovable-uploads/e1673b96-7401-48ab-9e9d-24ba2ef00c3e.png',
-      title: 'Divyakant Sir Teaching',
-      description: 'Interactive classroom session'
+      src: '/lovable-uploads/Author/0.jpg',
+      title: 'Computer Darpan Series',
+      description: 'Comprehensive textbook collection'
     },
     {
-      src: '/lovable-uploads/d24963db-61df-43f3-8bc6-b99145b16731.png',
-      title: 'Academic Excellence',
-      description: 'Outstanding results and achievements'
+      src: '/lovable-uploads/Author/1.jpg',
+      title: 'Standard 10 Edition',
+      description: 'Foundation computer science concepts'
     },
     {
-      src: '/lovable-uploads/4918c16d-437b-48cb-b248-5eb71b4c1028.png',
-      title: 'Student Success',
-      description: 'Congratulations to our toppers'
+      src: '/lovable-uploads/Author/3.jpg',
+      title: 'Standard 11 Edition',
+      description: 'Advanced programming concepts'
     },
     {
-      src: '/lovable-uploads/be2ea5d8-55a5-4008-a0de-899ce4a93891.png',
-      title: 'Learning Environment',
-      description: 'Students engaged in practical learning'
+      src: '/lovable-uploads/Author/4.jpg',
+      title: 'Standard 12 Edition',
+      description: 'Professional computer applications'
+    },
+    {
+      src: '/lovable-uploads/Author/5.jpg',
+      title: 'Complete Book Series',
+      description: 'All editions together'
     }
   ];
 
@@ -66,43 +71,44 @@ const About = () => {
       {/* Hero Section */}
       <section className="hero-gradient text-white section-padding">
         <div className="max-w-7xl mx-auto text-center">
-          <h1 className="text-5xl font-bold mb-6 animate-fade-in">About ECWDS</h1>
+          <h1 className="text-5xl font-bold mb-6 animate-fade-in">Author</h1>
           <p className="text-xl text-blue-100 max-w-3xl mx-auto animate-fade-in">
-            Empowering students with comprehensive computer education since 1998
+            Meet the author of "Computer Darpan" series - transforming computer education since 1998
           </p>
         </div>
       </section>
 
-      {/* About Divyakant Sir */}
+      {/* About the Author */}
       <section className="section-padding">
         <div className="max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-6">
               <h2 className="text-4xl font-bold text-gray-900">
-                Meet Divyakant Sir
+                Meet the Author
               </h2>
               <div className="text-lg text-gray-600 space-y-4">
                 <p>
+                  <strong>Divyakant Sir</strong> is the distinguished author of the "Computer Darpan" 
+                  series, a comprehensive collection of computer science textbooks designed 
+                  specifically for students of Standards 10, 11, and 12.
+                </p>
+                <p>
                   With over 27 years of dedicated experience in computer education, 
-                  Divyakant Sir has established himself as one of Gujarat's most respected 
-                  computer educators. His passion for teaching and innovative methodologies 
-                  have helped thousands of students achieve excellence in their academic pursuits.
+                  his deep understanding of student learning needs and curriculum requirements 
+                  has culminated in these essential educational resources that have guided 
+                  thousands of students across Gujarat.
                 </p>
                 <p>
-                  As the author of the renowned "Computer Darpan" series of books, 
-                  he has contributed significantly to computer education curriculum 
-                  for students of Std. 10, 11 & 12 across Gujarat.
-                </p>
-                <p>
-                  His commitment to student success and personalized teaching approach 
-                  has made ECWDS the most trusted name for computer education in Surat.
+                  The "Computer Darpan" series reflects his commitment to making computer 
+                  science accessible, practical, and engaging for young minds, bridging 
+                  the gap between theoretical concepts and real-world applications.
                 </p>
               </div>
             </div>
             
-            {/* Photo Gallery Grid */}
+            {/* Book Gallery Grid */}
             <div className="grid grid-cols-2 gap-4">
-              {aboutImages.map((image, index) => (
+              {bookImages.map((image, index) => (
                 <div 
                   key={index}
                   className="relative rounded-xl overflow-hidden shadow-lg card-hover"
@@ -124,29 +130,29 @@ const About = () => {
         </div>
       </section>
 
-      {/* Qualifications */}
+      {/* Book Series Details */}
       <section className="section-padding bg-gray-50">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-gray-900 mb-4">
-              Qualifications & Experience
+              Computer Darpan Book Series
             </h2>
             <p className="text-xl text-gray-600">
-              Certified expertise in computer education and teaching
+              Comprehensive computer education textbooks for Standards 10, 11 & 12
             </p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {qualifications.map((qual, index) => (
+            {bookSeries.map((book, index) => (
               <div key={index} className="bg-white p-6 rounded-xl shadow-lg text-center card-hover">
                 <div className="bg-[#2E86AB] bg-opacity-10 p-4 rounded-full w-16 h-16 mx-auto mb-4 flex items-center justify-center">
-                  <qual.icon className="h-8 w-8 text-[#2E86AB]" />
+                  <book.icon className="h-8 w-8 text-[#2E86AB]" />
                 </div>
                 <h3 className="text-lg font-semibold text-gray-900 mb-2">
-                  {qual.title}
+                  {book.title}
                 </h3>
                 <p className="text-gray-600">
-                  {qual.description}
+                  {book.description}
                 </p>
               </div>
             ))}
@@ -154,13 +160,13 @@ const About = () => {
         </div>
       </section>
 
-      {/* Achievements */}
+      {/* Author's Vision */}
       <section className="section-padding">
         <div className="max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
               <h2 className="text-4xl font-bold text-gray-900 mb-8">
-                Our Achievements
+                Book Series Features
               </h2>
               <div className="space-y-4">
                 {achievements.map((achievement, index) => (
@@ -172,16 +178,17 @@ const About = () => {
               </div>
             </div>
             <div className="bg-[#2E86AB] bg-opacity-5 p-8 rounded-2xl">
-              <h3 className="text-2xl font-bold text-gray-900 mb-6">Our Mission</h3>
+              <h3 className="text-2xl font-bold text-gray-900 mb-6">Author's Vision</h3>
               <p className="text-lg text-gray-700 mb-6">
-                To provide world-class computer education that empowers students 
-                with practical skills, theoretical knowledge, and the confidence 
-                to excel in their academic and professional journeys.
+                To create comprehensive, student-friendly textbooks that bridge 
+                the gap between theoretical computer science concepts and practical 
+                applications, making learning both effective and enjoyable.
               </p>
-              <h3 className="text-2xl font-bold text-gray-900 mb-6">Our Vision</h3>
+              <h3 className="text-2xl font-bold text-gray-900 mb-6">Book Impact</h3>
               <p className="text-lg text-gray-700">
-                To be the leading computer education institute in Gujarat, 
-                recognized for innovation, excellence, and student success.
+                The Computer Darpan series has become the preferred choice for 
+                computer science education across Gujarat, helping thousands of 
+                students excel in their board examinations.
               </p>
             </div>
           </div>
