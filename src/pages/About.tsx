@@ -1,6 +1,8 @@
 
+import { useState } from 'react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import ImageLightbox from '@/components/ImageLightbox';
 import { Award, BookOpen, Users, Target, CheckCircle } from 'lucide-react';
 
 const About = () => {
@@ -64,6 +66,18 @@ const About = () => {
     }
   ];
 
+  const [isLightboxOpen, setIsLightboxOpen] = useState(false);
+  const [selectedImageIndex, setSelectedImageIndex] = useState(0);
+
+  const openLightbox = (index: number) => {
+    setSelectedImageIndex(index);
+    setIsLightboxOpen(true);
+  };
+
+  const closeLightbox = () => {
+    setIsLightboxOpen(false);
+  };
+
   return (
     <div className="min-h-screen bg-white">
       <Header />
@@ -111,7 +125,8 @@ const About = () => {
               {bookImages.map((image, index) => (
                 <div 
                   key={index}
-                  className="relative rounded-xl overflow-hidden shadow-lg card-hover"
+                  className="relative rounded-xl overflow-hidden shadow-lg card-hover cursor-pointer"
+                  onClick={() => openLightbox(index)}
                 >
                   <img 
                     src={image.src}
@@ -196,6 +211,13 @@ const About = () => {
       </section>
 
       <Footer />
+      
+      <ImageLightbox
+        images={bookImages}
+        initialIndex={selectedImageIndex}
+        isOpen={isLightboxOpen}
+        onClose={closeLightbox}
+      />
     </div>
   );
 };
