@@ -13,21 +13,21 @@ export type Database = {
         Row: {
           id: number
           name: string
-          "phone number": string | null
+          phone_number: string | null
           school: string | null
           standard: string | null
         }
         Insert: {
           id?: number
           name: string
-          "phone number"?: string | null
+          phone_number?: string | null
           school?: string | null
           standard?: string | null
         }
         Update: {
           id?: number
           name?: string
-          "phone number"?: string | null
+          phone_number?: string | null
           school?: string | null
           standard?: string | null
         }

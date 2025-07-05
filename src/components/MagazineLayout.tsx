@@ -142,20 +142,20 @@ const MagazineLayout = ({ articles, onOpenLightbox }: MagazineLayoutProps) => {
           {/* Magazine Footer */}
           <div className="mt-16 pt-8 border-t-2 border-gray-300">
             <div className="text-center">
-              <div className="inline-flex items-center space-x-8 bg-gradient-to-r from-[#2E86AB] to-[#1B4F72] text-white px-8 py-4 rounded-xl">
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8 bg-gradient-to-r from-[#2E86AB] to-[#1B4F72] text-white px-4 sm:px-8 py-6 rounded-xl max-w-4xl mx-auto">
                 <div className="text-center">
-                  <BookOpen className="w-8 h-8 mx-auto mb-2" />
-                  <div className="text-sm font-semibold">Educational Excellence</div>
+                  <BookOpen className="w-6 h-6 sm:w-8 sm:h-8 mx-auto mb-2" />
+                  <div className="text-xs sm:text-sm font-semibold">Educational Excellence</div>
                   <div className="text-xs text-blue-200">Since 1997</div>
                 </div>
                 <div className="text-center">
-                  <Award className="w-8 h-8 mx-auto mb-2" />
-                  <div className="text-sm font-semibold">Award Winning</div>
+                  <Award className="w-6 h-6 sm:w-8 sm:h-8 mx-auto mb-2" />
+                  <div className="text-xs sm:text-sm font-semibold">Award Winning</div>
                   <div className="text-xs text-blue-200">Teaching Methods</div>
                 </div>
                 <div className="text-center">
-                  <Eye className="w-8 h-8 mx-auto mb-2" />
-                  <div className="text-sm font-semibold">Media Coverage</div>
+                  <Eye className="w-6 h-6 sm:w-8 sm:h-8 mx-auto mb-2" />
+                  <div className="text-xs sm:text-sm font-semibold">Media Coverage</div>
                   <div className="text-xs text-blue-200">Regular Features</div>
                 </div>
               </div>
