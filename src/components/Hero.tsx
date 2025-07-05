@@ -9,6 +9,7 @@ const Hero = () => {
   const [isAdmissionFormOpen, setIsAdmissionFormOpen] = useState(false);
   const [showAICoursePopup, setShowAICoursePopup] = useState(false);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [isTransitioning, setIsTransitioning] = useState(false);
 
   const heroImages = [
     "/lovable-uploads/e1673b96-7401-48ab-9e9d-24ba2ef00c3e.png",
@@ -26,11 +27,16 @@ const Hero = () => {
   }, []);
 
   useEffect(() => {
-    // Auto-change images every 2 seconds
+    // Auto-change images every 2 seconds with smooth transition
     const imageTimer = setInterval(() => {
-      setCurrentImageIndex((prevIndex) => 
-        (prevIndex + 1) % heroImages.length
-      );
+      setIsTransitioning(true);
+      
+      setTimeout(() => {
+        setCurrentImageIndex((prevIndex) => 
+          (prevIndex + 1) % heroImages.length
+        );
+        setIsTransitioning(false);
+      }, 300); // Half of transition duration
     }, 2000);
     
     return () => clearInterval(imageTimer);
@@ -137,7 +143,7 @@ const Hero = () => {
                 <img 
                   src={heroImages[currentImageIndex]} 
                   alt="Divyakant Sir - Best Computer Teacher in Surat, Gujarat" 
-                  className="w-full h-auto transition-opacity duration-500" 
+                  className={`w-full h-auto transition-opacity duration-600 ${isTransitioning ? 'opacity-30' : 'opacity-100'}`} 
                   onClick={() => {
                     // Open image in lightbox with all images
                     const lightboxImages = heroImages.map((src, index) => ({
